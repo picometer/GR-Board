@@ -1,0 +1,45 @@
+/* 외부로그인 CSS */
+#grLoginForm {
+	border: #f5f5f5 5px solid;
+}
+#grLoginBox {
+	border: #ddd 1px solid;
+	padding: 5px 0 5px 0;
+}
+#grLoginBox .loginBox {
+	padding-top: 7px;
+}
+#grLoginBox .loginLeft {
+	padding: 5px;
+	font-size: 11px;
+	color: #aaa;
+	font-family: Dotum, 돋움, sans-serif;
+	letter-spacing: -1px;
+}
+#grLoginBox .loginRight {
+	text-align: left; 
+	padding: 5px; 
+	font-size: 11px;
+}
+#grLoginBox .loginInput { 
+	border: #ddd solid 1px;
+	color: #666;
+	width: 80px; 
+}
+#grLoginBox .loginInput:focus { 
+	border:1px solid #948e72; 
+	color:#62574c; 
+	background-color: #fff; 
+}
+#grLoginBox .loginSubmit {
+	border-width: 0px; 
+	padding-top: 3px;
+}
+#grLoginBox .loginAlign { 
+	text-align: center; 
+	padding: 10px 0px 5px 0px; 
+}
+#grLoginBox .loginAlign input,
+#grLoginBox .loginAlign img {
+	vertical-align: middle;
+}

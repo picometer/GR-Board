@@ -1,0 +1,130 @@
+/* common */
+fieldset {
+	border: #ddd 1px solid;
+	padding: 5px;
+	text-align: left;
+}
+
+legend {
+	font-weight: bold;
+	color: #263d90;
+}
+
+/* define style */
+.input {
+	border-width:0px;
+	border-bottom:#ddd 1px solid;
+	background-color:transparent;
+	font-family: verdana, sans-serif;
+	font-size:12px;
+}
+
+.textarea {
+	border: #ddd 1px solid;
+	background-color: transparent;
+	padding: 3px;
+	width: 100%;
+	overflow: auto;
+}
+
+.boxInput {
+	border: #ddd 1px solid;
+	background-color: transparent;
+}
+
+/* Button style by Wordpress.org */
+.submit, .goBack {
+	font-size:12px;
+	background-color:#f5f5f5;
+	padding:3px;
+	border: 3px double #999;
+	border-left-color: #ccc;
+	border-top-color: #ccc;
+	color: #333;
+}
+
+.errorBox {
+	border:#ddd 1px solid;
+	padding:5px;
+	text-align:left;
+}
+
+.tableLeft {
+	background-color:#fafafa;
+	padding:5px 0px 5px 10px;
+	font-weight:bold;
+	width:110px;
+	float:left;
+}
+
+.tableRight {
+	padding: 5px 0px 5px 10px;
+	float: left;
+}
+
+.divLeft {
+	background-color: #fafafa;
+	padding: 5px 0px 5px 5px;
+	font-weight: bold;
+	width: 80px;
+	float: left;
+}
+
+.divRight {
+	padding: 5px 0px 5px 5px;
+	float: left;
+}
+
+.tableListLine { 
+	border-top: #e0e0e0 1px dotted;
+}
+
+.loginBottom {
+	padding: 5px;
+	text-align: right;
+}
+
+.loginBar {
+	background: url(image/admin/bar_back2.gif) repeat-x bottom;
+	font-size: 12px;
+	height: 34px;
+	text-align: center;
+	font-weight: bold;
+	cursor: move;
+}
+.loginBottom input { vertical-align: middle; }
+.loginBottom img { cursor: pointer; vertical-align: middle; }
+
+/* special ID */
+#installBox { text-align: center; }
+#installBox .sizeFix { width: 750px; margin: auto; }
+#scrollBox { border: #ddd 1px solid; padding: 5px; text-align: left; height: 300px; }
+#scrollBox .over { overflow: auto; }
+#memberInfo { width: 95%; margin: auto; }
+#msgBox { margin: auto; width: 350px; padding-top: 100px; padding-bottom: 100px; font-size: 12px; color: #666;}
+
+/* for Movable Target */
+.mv { 
+	cursor: move; 
+	height: 25px; 
+	background: url(image/admin/mv_top.gif) repeat-x; 
+	color: #000; 
+	padding-top: 3px; 
+	text-align: center;
+}
+.mvLoginBack {
+	border-width: 0px 1px 1px 1px; 
+	border-color: #ddd; 
+	border-style: solid; 
+	width: 300px; 
+	background-color: #fff; 
+	text-align: left;
+}
+.mvBack { 
+	border-width: 0px 1px 1px 1px; 
+	border-color: #ddd; 
+	border-style: solid; 
+	width: 750px; 
+	background-color: #fff; 
+	text-align: left;
+}

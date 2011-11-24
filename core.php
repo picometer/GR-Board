@@ -1,0 +1,1 @@
+<?php $grcore = '../grcore'; $dbFIX = 'gr_'; $timeDiff = '0'; ?>

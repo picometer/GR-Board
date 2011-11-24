@@ -1,0 +1,15 @@
+/* 최근 갤러리 게시물 CSS */
+.latestTotalTitle { height: 27px; padding-top: 9px; background: url(mv_top.gif) repeat-x; text-align: center; color: #666; }
+.latestTotalBox { position: relative; border-bottom: #eee 1px solid; border-left: #fff 1px solid; border-right: #fff 1px solid; padding: 0 0 10px 0; }
+.latestTotalBox:hover { background-color: #fafafa; border-left: #eee 1px solid; border-right: #eee 1px solid; }
+.latestTotalPhoto { float: left; padding: 10px; text-align: center; width: 110px; }
+.latestTotalPhoto img { border: #fff 1px solid; }
+.latestTotalPhoto img:hover { border: #ddd 1px solid; }
+.latestTotalSubject { float: left; text-align: left; padding: 15px 10px; width: 330px; }
+.latestTotalSubject a { font-weight: bold; }
+.latestTotalSubject a:hover { padding: 0 0 3px 0; border-bottom: #ddd 2px solid; }
+.latestTotalContent { padding: 10px 0 0 0; line-height: 155%; color: #999; }
+.latestTotalCost { position: absolute; right: 10px; padding: 40px 0 0 0; }
+.latestTotalCost span { display: block; }
+.latestTotalOriginalCost { padding: 5px 0 0 3px; font-size: 11px; font-family: Dotum, 돋움, sans-serif; letter-spacing: -1px; color: #999; text-align: left; }
+.latestTotalSaleCost { padding: 3px 0 0 3px; color: #288993; text-align: left; }

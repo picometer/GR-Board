@@ -1,0 +1,168 @@
+@charset "utf-8";
+
+/* Design BY_ STUDIO-D (www.studio-d.kr) */
+/* Common */
+body { background-color: #eee; }
+h1, h2, h3, h4, h5, dl, dt, dd, ul, li, ol, th, td, p, blockquote, form, fieldset, legend, body { padding: 0; margin: 0; }
+p { pading-bottom: 5px; }
+div#memobox img { vertical-align: middle; border: 0 none; }
+div#memobox { font-size: 12px; font-family: "돋움", dotum, sans-serif; color:#5e5e5e; }
+
+/* Memo Box */
+div#memobox { background-color: #eee; height: 100%; min-width: 630px; text-align: left; position: relative; }
+
+/* Header */
+div#memobox div.header { height: 83px; background: url("./images/background_header.jpg") repeat-x; }
+div#memobox div.header h1 { text-indent: -100em; width: 350px; height: 83px; background: url("./images/header.jpg") no-repeat; }
+
+/* noscript */
+div#noscript { border: 3px solid #979797; padding: 10px; background-color: white; margin-bottom: 20px; }
+
+/* Contents */
+div#memobox div.contents { padding: 20px; }
+p.notice { background: url("./images/mark.gif") no-repeat 0 2px; padding-left: 10px; float: right; }
+div#memobox table caption { display: none; }
+.memotable { clear: both; width: 100%; table-layout: fixed;  }
+  /* 상단 제목부분 */
+  .memotable tr.titlebar { border-collapse: collapse; height: 40px; font-size: 12px; }
+  .memotable tr.titlebar th { border-bottom: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; background-color: #d5d5d5; font-weight: normal; }
+  .memotable tr.titlebar th.checkbox { width: 30px; text-align: center; }
+  .memotable tr.titlebar th.check { width: 30px; text-align: center; }
+  .memotable tr.titlebar th.sender { width: 95px; text-align: center; border-left: 1px solid #c1c1c1;  }
+  .memotable tr.titlebar th.title { text-align: center; border-left: 1px solid #c1c1c1; }
+  .memotable tr.titlebar th.date { text-align: center; width: 85px; border-left: 1px solid #c1c1c1; }
+  .memotable tr.titlebar th.delete { width: 40px; text-align: center; border-left: 1px solid #c1c1c1; }
+  /* 리스트 부분 */
+  .memotable tr.listbar { border-collapse: collapse; height: 20px; font-size: 12px; background-color: white; }
+  .memotable tr.listbar td { padding: 5px; border-bottom: 1px solid #e6e6e6;  }
+  .memotable tr.listbar td.checkbox { width: 30px; text-align: center; border-bottom: 1px solid #e6e6e6; }
+  .memotable tr.listbar td.check { width: 30px; text-align: center; border-bottom: 1px solid #e6e6e6; }
+    .memotable tr.listbar td.check img { vertical-align: middle; }
+  .memotable tr.listbar td.sender { width: 95px; text-align: left; border-bottom: 1px solid #e6e6e6; padding-left: 15px; color: black; }
+  .memotable tr.listbar td.title { text-align: left; border-bottom: 1px solid #e6e6e6; padding-left: 15px; }
+    .memotable tr.listbar td.title a { text-decoration: none; color: black; }
+    .memotable tr.listbar td.title a:hover { text-decoration: underline; color: #627f9c; }
+    .memotable tr.listbar td.title a.no_read { font-weight: bold; }
+  .memotable tr.listbar td.date { text-align: center; width: 85px; border-bottom: 1px solid #e6e6e6; }
+  .memotable tr.listbar td.delete { width: 40px; text-align: center; border-bottom: 1px solid #e6e6e6; }
+    .memotable tr.listbar td.delete img { vertical-align: middle; }
+  /* 페이지리스트 부분 */
+  .memotable tr.pagelist { height: 50px; }
+  .memotable tr.pagelist td { text-align: right; padding: 30px 10px; }
+  .memotable tr.pagelist td a { border: 1px solid #b1b1b1; padding: 5px; color: #4b4b4b; text-decoration: none; font-weight: bold; }
+  .memotable tr.pagelist td a:hover { background-color: #e2e2e2; }
+  .memotable tr.pagelist td strong { color: #FF6633; padding: 5px; font-weight: bold; }
+  /* 쪽지 읽기 */
+  .memotable_read { clear: both; width: 100%; table-layout: fixed; background-color: white; border: 1px solid #c1c1c1; }
+  .memotable_read thead tr { height: 30px; }
+  .memotable_read thead tr th { text-align: center; background-color: #d5d5d5; width: 130px; border-bottom: 1px solid #c1c1c1; }
+  .memotable_read thead tr td { padding-left: 15px; border-bottom: 1px solid #c1c1c1; }
+  .memotable_read tbody tr th { display: none; } 
+  .memotable_read tbody tr td.content { padding: 20px; line-height: 130%; }
+    .memotable_read tbody tr td.content a { text-decoration: none; color: black; }
+    .memotable_read tbody tr td.content a:hover { text-decoration: underline; color: #627f9c; }
+
+/* 쪽지상단 메뉴 */
+div#memobox ul.memo_menu { padding: 10px 0 10px 10px; margin: 0; float: right; }
+div#memobox ul.memo_menu li { float: left; margin-right: 20px; }
+div#memobox ul.memo_menu li a { color: #6d6d6d; text-decoration: none; }
+
+/* 쪽지읽기 메뉴 */
+div#memobox ul.memoread { list-style: none; padding: 20px 20px 40px 0; }
+div#memobox ul.memoread li { float: left; margin-right: 10px; }
+div#memobox ul.memoread li a { border: 1px solid #b1b1b1; padding: 5px; color: #4b4b4b; text-decoration: none; font-weight: bold; }
+div#memobox ul.memoread li a:hover { background-color: #e2e2e2; }
+
+/* h2 꾸미기*/
+div#memobox h2.nametac1 { float: left; text-indent: -100em; width: 125px; height: 26px; background: url("./images/nametac1.gif") no-repeat; } /* 받은쪽지 */
+div#memobox h2.nametac2 { float: left; text-indent: -100em; width: 125px; height: 26px; background: url("./images/nametac2.gif") no-repeat; } /* 보낸쪽지 */
+div#memobox h2.nametac3 { float: left; text-indent: -100em; width: 125px; height: 26px; background: url("./images/nametac3.gif") no-repeat; } /* 안 읽은 쪽지 */
+div#memobox h2.nametac4 { float: left; text-indent: -100em; width: 125px; height: 26px; background: url("./images/nametac4.gif") no-repeat; } /* 쪽지읽기 */
+
+/* copyright 삭제시 라이센스 위반입니다.
+   최소한의 저작권을 보호해주세요. __)
+   삭제를 원하시는 분은 라이센스료를 지불하시면 저작권 없이 사용 가능합니다. */
+
+/* 저작권 표시 */
+div.copyright { clear: both; }
+div.copyright a  { 
+  font-size: 12px;
+  color: #444;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #eeeeee;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  font-weight: bold;
+  /* IE Filter */
+  -ms-filter: "progid:DXImageTransform.Microsoft.DropShadow(offx=1, offy=1, color='#eeeeee', positive='true')"; /* IE8+ */
+}
+
+.textarea { width:99%; height:300px; }
+
+
+/* define style */
+.bigTitle {
+	text-align: center;
+	font-size: 32px;
+	font-weight: bold;
+	text-shadow: 2px 2px 2px #ddd;
+	color: #5e5e5e;
+	font-family: Malgun Gothic, sans-serif;	
+}
+#sendingMemo {
+	border: #ddd 1px solid;
+	padding: 10px;
+	overflow: auto;
+	text-align: left;
+	margin: 10px;
+	border-radius: 10px;
+	background-color: #fff;
+	box-shadow: 3px 3px 3px #ddd;
+}
+
+#sendingMemo .legend {
+	font-weight: bold;
+	color: #1f6088;
+	font-size: 18px;
+	font-family: Malgun Gothic, sans-serif;
+	text-shadow: 2px 2px 2px #eee;
+}
+
+#sendingMemo .bigTitle {
+	font-weight: bold;
+	font-size: 22pt;
+	padding: 15px;
+	color: #1f6088;
+}
+
+#sendingMemo .titleBar {
+	background: url(title-back.gif) repeat-x;
+	height: 35px;
+	color: #fff;
+}
+
+#sendingMemo .titleBar a {
+	color: #fff;
+}
+
+#sendingMemo .input {
+	border-width: 0px;
+	border-bottom: #ddd 1px solid;
+	background-color: transparent;
+	font-family: verdana, Gulim;
+	font-size: 12px;
+}
+
+#sendingMemo .textarea {
+	border: #ddd 1px solid;
+	background-color: transparent;
+	padding: 3px;
+	overflow: auto;
+}
+
+#sendingMemo .boxInput {
+	border: #ddd 1px solid;
+	background-color: transparent;
+	width: 300px;
+}

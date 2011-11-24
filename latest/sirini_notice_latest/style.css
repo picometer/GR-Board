@@ -1,0 +1,7 @@
+/* 최근게시물 CSS */
+.latestNoticeTitle { padding:4px 0px 4px 15px; border-bottom:#ddd 1px solid; background-color:#F7F7F7; }
+.latestNoticeTitle a { text-decoration:none; color:#707070; font-weight:bold; }
+.latestNoticeTitle a:hover { text-decoration:none; color:#000; font-weight:bold; }
+.latestNoticeCommentNum { padding-top:4px; font:0.75em verdana, sans-serif; color:#505050; }
+.latestNoticeDate { font:0.75em verdana, sans-serif; color:#858585; }
+.latestNoticeContent { clear:both; padding:5px; color:#505050; height:150px; overflow:auto; }

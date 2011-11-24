@@ -1,0 +1,14 @@
+/* 최근게시물 CSS */
+.latestTotalTitle { 
+	background: url(mv_top.gif) repeat-x top;
+	padding-top: 7px; 
+	text-align: center;
+	height: 29px;
+}
+.latestTotalTitle a { text-decoration: none; color: #666; font-weight: bold; }
+.latestTotalTitle a:hover { text-decoration: none; color: #2f588a; font-weight: bold; }
+.latestTotalSubject { border-bottom: #eee 1px solid; padding: 5px; text-align: left; position: relative; }
+.latestTotalSubject a { font: 12px verdana, 굴림, AppleGothic, sans-serif; text-decoration: none; color: #555; }
+.latestTotalSubject a:hover { color: #2f588a; }
+.latestTotalDate { font: 10px verdana, sans-serif; color: #bbb; position: absolute; right: 3px; }
+.latestClear { clear: both; }

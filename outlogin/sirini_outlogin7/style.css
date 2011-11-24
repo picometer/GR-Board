@@ -1,0 +1,32 @@
+/* 외부로그인 CSS */
+#grLoginForm {
+	padding: 5px;
+	width: 160px;
+}
+.loginLeft {
+	width: 35px;
+	height: 30px;
+	float: left; 
+	font-size: 11px;
+	color: #555;
+}
+.loginRight { width: 105px; float: left; height: 30px; }
+.loginClear { clear: both; }
+.loginInput { 
+	border: #38434e solid 1px;
+	color: #666;
+	width: 110px; 
+}
+.loginInput:focus { border:1px solid #948e72; color:#62574c; background-color: #fff; }
+.loginSubmit {
+	border-width: 0px; 
+	padding-top: 3px;
+}
+.loginAlign { 
+	text-align: center; 
+	padding: 5px 0px 5px 0px; 
+}
+.loginAlign input,
+.loginAlign img {
+	vertical-align: middle;
+}

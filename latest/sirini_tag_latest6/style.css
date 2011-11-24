@@ -1,0 +1,7 @@
+/* 최근게시물 CSS */
+.latestClear { clear: both; }
+.tagLv1 { font-size: 11px; font-family: Dotum, 돋움, sans-serif; color: #aaa; letter-spacing: -1; }
+.tagLv2 { font-size: 12px; color: #666; }
+.tagLv3 { font-size: 14px; text-decoration: underline; }
+.tagLv4 { font-size: 18px; }
+.tagLv5 { font-size: 22px; font-weight: bold; }

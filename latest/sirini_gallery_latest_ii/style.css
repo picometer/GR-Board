@@ -1,0 +1,5 @@
+/* 최근 갤러리 게시물 CSS */
+.latestGalleryTitle { height: 29px; padding-top: 7px; background: url(mv_top.gif) repeat-x; text-align: center; }
+.latestGalleryPhoto { padding-top: 15px; text-align: center; }
+.latestGalleryPhoto img { border: #ddd 3px solid; }
+.latestGalleryPhoto img:hover { border: #343e47 3px solid; }

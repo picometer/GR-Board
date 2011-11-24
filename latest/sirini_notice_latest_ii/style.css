@@ -1,0 +1,5 @@
+/* 최근게시물 CSS */
+.latestNoticeTitle { background-color:#f7f7f7; padding: 10px; }
+.latestNoticeTitle a { text-decoration:none; color:#666; font-weight:bold; }
+.latestNoticeTitle a:hover { text-decoration:none; color:#000; font-weight:bold; }
+.latestNoticeContent { clear:both; padding-top: 10px; color:#505050; font-size: 12px; font-family: Gulim, sans-serif; }

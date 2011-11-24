@@ -1,0 +1,4 @@
+/* 현재 접속자 CSS */
+.nowConnTitle { background: url(mv_top.gif) no-repeat; height: 30px; width: 200px; }
+.nowConnList { padding: 3px 3px 3px 8px; border-bottom: #f0f0f0 1px solid; font-family: Dotum, 돋움, sans-serif; font-size: 11px; color: #999; }
+.nowConnList:hover { background-color: #ffffe0; color: #666; }

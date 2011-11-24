@@ -1,0 +1,8 @@
+/* 최근 갤러리 게시물 CSS */
+.latestGalleryTitle { height: 27px; padding-top: 9px; background: url(mv_top.gif) repeat-x; text-align: center; color: #666; }
+.latestGalleryPhoto { padding: 10px 0 0 7px; float: left; text-align: center; }
+.latestGalleryPhoto img { border: #ddd 1px solid; }
+.latestGalleryPhoto img:hover { border: #aaa 1px solid; }
+.latestGallerySubject { padding: 5px 0 0 3px; text-align: left; }
+.latestOriginalCost { padding: 5px 0 0 3px; font-size: 11px; font-family: Dotum, 돋움, sans-serif; letter-spacing: -1px; color: #999; text-align: left; }
+.latestSaleCost { padding: 3px 0 0 3px; color: #288993; text-align: left; }

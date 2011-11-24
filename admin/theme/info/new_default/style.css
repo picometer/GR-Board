@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+/* Design BY_ STUDIO-D (www.studio-d.kr) */
+/* Common */
+h1, h2, h3, h4, h5, dl, dt, dd, ul, li, ol, th, td, p, blockquote, form, fieldset, legend, body { padding: 0; margin: 0; }
+p { pading-bottom: 5px; }
+div#memberInfo img { vertical-align: middle; border: 0 none; }
+div#memberInfo { font-size: 12px; font-family: "돋움", dotum, sans-serif; color:#5e5e5e; }
+.input { background-color: #FBFBFB; border: 1px #dcdde3 solid; padding: 3px; color: #a2a2a2; }
+.input:focus { border: 1px #5da5f7 solid; color:#2e2e2e; }
+.textarea { background-color: #FBFBFB; border: 1px #dcdde3 solid; padding: 3px; font-size: 12px; color: #a2a2a2; }
+.textarea:focus { border: 1px #5da5f7 solid; color:#2e2e2e; }
+span.mark { position: absolute; top: -3000px; left: -3000px; }
+
+/* Member Info */
+div#memberInfo { background-color: #eeeeee; min-width: 630px; }
+
+/* Header */
+div#memberInfo div.header { height: 83px; background: url("./images/background_header.jpg") repeat-x; }
+div#memberInfo div.header h1 { text-indent: -100em; width: 350px; height: 83px; background: url("./images/header.jpg") no-repeat; }
+
+/* noscript */
+div#noscript { border: 3px solid #979797; padding: 10px; background-color: white; margin-bottom: 20px; }
+
+/* Contents */
+div#memberInfo div.contents { padding: 20px; }
+p.notice { background: url("./images/mark.gif") no-repeat 0 2px; padding-left: 10px; float: right; } /* 필수 입력사항 안내 */
+.input_table { clear: both; border: 0; border-top: 2px solid #979797; border-bottom: 2px solid #979797; width: 100%; table-layout: fixed; margin-bottom: 30px; }
+.input_table tr { height: 36px; }
+.input_table tr th { padding:11px 0 10px 21px; width: 136px; text-align: left; background-color: #e6e6e6; vertical-align: top; border-bottom: 1px solid #bcbcbc; border-right: 1px solid #bcbcbc; }
+.input_table tr th.mark { background: #e6e6e6 url("./images/mark.gif") no-repeat 8px 13px; }
+.input_table tr td { padding: 13px 0 10px 20px; text-align: left; background-color: white; border-bottom: 1px solid #bcbcbc; vertical-align: top; }
+.input_table tr td p { font-size: 11px; padding: 2px 0; }
+p.jumin_ok { background: url("./images/mark_green.gif") no-repeat 0 2px; color: green; } /* 주민등록번호 입력 확인 */
+p.info { font-size: 11px; color: #536ecc; margin-top: 5px; }
+div.info { padding: 10px; border: 3px solid #eeeeee; margin-right: 20px; }
+div.info label { cursor: pointer; }
+div.info img.photo { width: 100px; height: 100px; }
+
+/* 최근 로그인 기록 */
+div#memberInfo div.login div { border-top: 2px solid #979797; border-bottom: 2px solid #979797; background-color: white; padding: 20px; margin-bottom: 10px; }
+div#memberInfo div.login ol {  list-style: none; height: 115px; overflow-y: auto; }
+div#memberInfo div.login li { border-bottom: 1px solid #bcbcbc; padding: 10px; }
+div#memberInfo div.login li:hover { background: url("./images/background_login.gif") bottom repeat-x; font-weight: bold; }
+
+/* 버튼 */
+div#memberInfo ul.button { list-style: none; margin: 30px 0 0 10px; }
+div#memberInfo ul.button li a { text-indent: -9999999px; width: 64px; height: 32px; }
+div#memberInfo ul.button li.delete a { float: left; background: url("./images/delete.gif") no-repeat; }
+div#memberInfo ul.button li.ok { float: right; }
+div#memberInfo ul.button li.cancel a { float: right; background: url("./images/cancel.gif") no-repeat; }
+div#memberInfo ul.button li.cancel a span { visibility: hidden; position: absolute; top: -9999em; left: -9999em; width: 1px; height: 1px; line-height: 0; overflow: hidden; }
+a.nickname_check { float: left; text-indent: -100em; background: url("./images/nickname_check.gif") no-repeat; width: 114px; height: 28px; } /* 닉네임 중복검사 */
+
+/* h2 꾸미기*/
+div.common h2 { float: left; text-indent: -100em; width: 125px; height: 26px; background: url("./images/nametac1.gif") no-repeat; } /* 기본정보 */
+div.add h2 { text-indent: -100em; width: 125px; height: 26px; background: url("./images/nametac2.gif") no-repeat; } /* 추가정보 */
+div.login h2 { text-indent: -100em; width: 125px; height: 26px; background: url("./images/nametac3.gif") no-repeat; } /* 최근 로그인 기록 */
+
+/* copyright 삭제시 라이센스 위반입니다.
+   최소한의 저작권을 보호해주세요. __)
+   삭제를 원하시는 분은 라이센스료를 지불하시면 저작권 없이 사용 가능합니다. */
+
+/* 저작권 표시 */
+div.copyright { clear: both; }
+div.copyright a  { 
+  font-size: 12px;
+  color: #444444;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #eeeeee;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  font-weight: bold;
+  /* IE Filter */
+  -ms-filter: "progid:DXImageTransform.Microsoft.DropShadow(offx=1, offy=1, color='#eeeeee', positive='true')"; /* IE8+ */
+			filter: progid:DXImageTransform.Microsoft.DropShadow(offx=1, offy=1, color='#eeeeee', positive='true') /* IE and lower */
+}
+
+legend {
+	font-weight: bold;
+	color:#263D90;
+}
+
+.tableLeft {
+	background: url(image/admin/pattern.dot.gif);
+	padding: 7px 0 0 5px;
+	text-align: center;
+	width: 150px;
+	float: left;
+	height: 28px;
+	cursor: help;
+	color: #999;
+	margin-left: 5px;
+}
+
+.tableLeft:hover {
+	background: none;
+	background-color: #5e5e5e;
+	color: #eee;
+}
+
+.tableRight {
+	padding: 7px 0px 5px 5px;
+	float: left;
+	line-height: 170%;
+}
+
+.tableRight:hover {
+	background-color: #f5f5f5;
+	border: #aaa 2px solid;
+	padding: 3px;
+}
+.clear { clear: both; }

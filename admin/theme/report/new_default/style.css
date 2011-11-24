@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+/* Design BY_ STUDIO-D (www.studio-d.kr) */
+/* Common */
+body { background-color: #eee; }
+h1, h2, h3, h4, h5, dl, dt, dd, ul, li, ol, th, td, p, blockquote, form, fieldset, legend, body { padding: 0; margin: 0; }
+p { pading-bottom: 5px; }
+div#report img { vertical-align: middle; border: 0 none; }
+div#report { font-size: 12px; font-family: "돋움", dotum, sans-serif; color:#5e5e5e; }
+
+/* Memo Box */
+div#report { background-color: #eee; height: 100%; min-width: 630px; text-align: left; position: relative; }
+
+/* Header */
+div#report div.header { height: 83px; background: url("./images/background_header.jpg") repeat-x; }
+div#report div.header h1 { text-indent: -100em; width: 350px; height: 83px; background: url("./images/header.jpg") no-repeat; }
+
+/* noscript */
+div#noscript { border: 3px solid #979797; padding: 10px; background-color: white; margin-bottom: 20px; }
+
+/* Contents */
+div#report div.contents { padding: 20px; }
+p.notice { background: url("./images/mark.gif") no-repeat 0 2px; padding-left: 10px; float: right; }
+div#report table caption { display: none; }
+.report_table { clear: both; width: 100%; table-layout: fixed;  }
+  /* 신고정보 */
+  .report_table { clear: both; border: 0; border-top: 2px solid #979797; border-bottom: 2px solid #979797; width: 100%; margin-bottom: 20px; }
+  .report_table thead tr { height: 36px; }
+  .report_table thead tr th { padding: 11px 0 10px 21px; text-align: left; background-color: #e6e6e6; width: 130px; border-bottom: 1px solid #c1c1c1; }
+  .report_table tbody tr th { padding: 11px 0 10px 21px; padding-top: 15px; text-align: left; background-color: #e6e6e6; width: 130px; vertical-align: top; border-bottom: 1px solid #c1c1c1; }
+  .report_table thead tr td { padding: 13px 0 10px 20px; border-bottom: 1px solid #c1c1c1; background-color: white; }
+  .report_table thead body td { padding: 13px 0 10px 20px; border-bottom: 1px solid #c1c1c1; background-color: white; }
+  .report_table tbody tr td.content { padding: 13px 0 10px 20px; line-height: 130%; border-bottom: 1px solid #c1c1c1; background-color: white; }
+  .report_table tbody tr td.content ul, ol { margin: 13px 0 10px 20px; }
+    .report_table tr td.content a { text-decoration: none; color: black; }
+    .report_table tr td.content a:hover { text-decoration: underline; color: #627f9c; }
+
+  /* 신고사유 */
+  div#report textarea { background-color: #FBFBFB; border: 1px #dcdde3 solid; padding: 3px; font-size: 12px; color: #a2a2a2; }
+  div#report textarea:focus { border: 1px #5da5f7 solid; color:#2e2e2e; }
+
+
+/* h2 꾸미기*/
+div#report h2.nametac1 { text-indent: -100em; width: 125px; height: 26px; background: url("./images/nametac1.gif") no-repeat; } /* 신고할 게시물 */
+div#report h2.nametac2 { float: left; text-indent: -100em; width: 125px; height: 26px; background: url("./images/nametac2.gif") no-repeat; } /* 신고사유 */
+
+/* 버튼 */
+div#report ul.button { float: right; list-style: none; margin: 0px; 0 0 0; padding: 0; }
+div#report ul.button li a { text-indent: -100em; width: 64px; height: 32px; }
+div#report ul.button li.ok { float: right; }
+
+/* copyright 삭제시 라이센스 위반입니다.
+   최소한의 저작권을 보호해주세요. __)
+   삭제를 원하시는 분은 라이센스료를 지불하시면 저작권 없이 사용 가능합니다. */
+
+/* 저작권 표시 */
+div.copyright { clear: both; }
+div.copyright a  { 
+  font-size: 12px;
+  color: #444444;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #eeeeee;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  font-weight: bold;
+  /* IE Filter */
+  -ms-filter: "progid:DXImageTransform.Microsoft.DropShadow(offx=1, offy=1, color='#eeeeee', positive='true')"; /* IE8+ */
+			filter: progid:DXImageTransform.Microsoft.DropShadow(offx=1, offy=1, color='#eeeeee', positive='true') /* IE and lower */
+}

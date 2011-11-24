@@ -1,0 +1,11 @@
+/* 최근 갤러리 게시물 CSS */
+.latestGalleryTitle {
+	background:url(bg.gif) repeat-x bottom;
+	padding:5px; 
+	border-bottom:#ddd 3px double; 
+	background-color:#f7f7f7;
+	text-align:center;
+}
+.latestGalleryTitle a { color:#707070; font-weight:bold; }
+.latestGalleryTitle a:hover { color:#000; font-weight:bold; }
+.latestGalleryPhoto { padding:5px 0px 5px 14px; text-align:center; float:left; }

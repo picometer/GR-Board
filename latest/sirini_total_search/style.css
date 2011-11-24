@@ -1,0 +1,13 @@
+.latestTotalSearch { border-top: #ddd 1px solid; border-bottom: #ddd 1px solid; background-color: #fcfcfc; text-align: center; padding: 20px; }
+.latestTotalSearch input { vertical-align: middle; border: 0 none; }
+.latestTotalSearch .i { border: #eee 3px solid; background-color: #fff; width: 200px; height: 18px; padding-top: 3px; font-size: 12px; }
+.latestTotalSearch .i:focus { border: #aaa 3px solid; }
+.latestTotalSearch select { border: #ddd 1px solid; padding: 5px; font-size: 12px; }
+.latestSearchList { padding: 5px; border-bottom: #eee 1px solid; }
+.latestSearchList:hover { background-color: #f9f9f9; }
+.latestSearchList a { font-size: 12px; color: #666; text-decoration: none; }
+.latestSearchList a:hover { color: green; }
+#_latestWaitSearch { text-align: center; padding: 50px; }
+#_latestSearchResult { padding: 20px 5px 5px 5px; }
+#_latestSearchResult img { border: 0 none; vertical-align: middle; }
+#_latestSearchResult .latestBeforeSearch { text-align: center; padding-top: 50px; color: #999; }

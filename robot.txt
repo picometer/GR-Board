@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: *.txt
+Disallow: /member_info.php
+Disallow: /join.php

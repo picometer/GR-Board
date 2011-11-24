@@ -1,0 +1,20 @@
+/* 최근게시물 CSS */
+.latestSubject { height: 20px; border-top: #ddd 1px dotted; padding: 5px 0px 0px 5px; text-align: left; }
+.latestTitle { 
+	background: url(mv_top.gif) repeat-x top;
+	color: #21648e; 
+	padding-top: 7px; 
+	text-align: center;
+	font-weight: bold;
+	height: 34px;
+}
+.latestTitle a { text-decoration: none; color: #666; font-weight: bold; }
+.latestTitle a:hover { text-decoration: none; color: #2f588a; font-weight: bold; }
+.latestSubject a { font: 12px verdana, 굴림, AppleGothic, sans-serif; text-decoration: none; color: #555; }
+.latestSubject a:hover { color: #2f588a; }
+.latestSubject span { font-size: 11px; color: #aaa; }
+.latestCategory { color: #828282; }
+.latestCommentNum { padding-top: 2px; font: 9px verdana, sans-serif; color: #999; }
+.latestDate { font: 10px verdana, sans-serif; color: #999; }
+.latestContent { padding: 5px; color: #888; }
+.latestClear { clear: both; }

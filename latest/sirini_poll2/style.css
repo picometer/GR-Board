@@ -1,0 +1,33 @@
+#pollBox {
+	margin-top: -10px;
+	font-size: 11px;
+	letter-spacing: -1px;
+	font-family: verdana, sans-serif;
+	color: #777;
+}
+#pollSubject {
+	padding: 5px;
+	border-bottom: #ddd 1px dotted;
+}
+#pollOptions {
+	padding: 5px;
+	vertical-align: middle;
+	line-height: 180%;
+}
+#pollOptions input {
+	vertical-align: middle;
+}
+#pollButton {
+	text-align: center;
+	padding: 10px;
+	vertical-align: middle;
+}
+#pollButton .input {
+	vertical-align: middle;
+	background-color: #8e8e8e;
+	padding: 3px;
+	border: 0 none;
+	color: #fff;
+	font-size: 11px;
+	width: 40px;
+}
