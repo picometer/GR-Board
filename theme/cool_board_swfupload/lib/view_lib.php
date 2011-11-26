@@ -116,7 +116,7 @@ function setViewData($comment)
 
 	// 비밀 코멘트 시 처리
 	if($comment['is_secret']) {
-		if(($comment['member_key'] != $_SESSION['no']) && ($view['member_key'] != $_SESSION['no']) && ($_SESSION['no'] != 1)) {
+		if(!$_SESSION['no'] || ($comment['member_key'] != $_SESSION['no']) && ($view['member_key'] != $_SESSION['no']) && ($_SESSION['no'] != 1)) {
 			$comment['subject'] = '비밀 댓글 입니다.';			
 			$comment['content'] = '<span class="secretComment">비밀 댓글 입니다.</span>';
 		}
