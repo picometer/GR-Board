@@ -84,7 +84,11 @@ $content = autoImgResize($maxImageWidth, $content);
 	     </script>
 	     <div class="fb-like"></div>
 	     <!-- 페이스북 Like 연동 끝 -->
-	     <?php endif; ?>
+	  
+	  	<p><a href="https://twitter.com/intent/tweet?text=<?php echo urlencode($view['subject'] . ' http://' . $_SERVER['SERVER_NAME'] . $grboard . '/board.php?id=' . $id . '&articleNo=' . $articleNo); ?>" onclick="window.open(this.href, '_blank', 'width=550,height=420,menubar=no'); return false;">
+	  		<img src="<?php echo $theme; ?>/image/tweetn-ko.png" alt="Tweet" /> 에 소개해 보세요 :)
+	  	</a></p>
+	  <?php endif; ?>
 	     
 		<p><img src="<?php echo $grboard.'/'.$theme; ?>/image/icon_tag.gif" alt="태그" /> <?php echo $tag; ?></p>
 		<p><img src="<?php echo $grboard.'/'.$theme; ?>/image/disk.gif" alt="첨부파일" />
