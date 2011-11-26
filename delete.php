@@ -78,7 +78,12 @@ if(($_SESSION['no'] == 1) || $isMaster) {
 	
 	// 글삭제 하단 스킨 인클루드 @sirini
 	@include 'theme/'.$getMasters['theme'].'/theme_delete_foot.php';
-	$GR->error('글이 정상적으로 삭제되었습니다', 0, 'board.php?id='.$id.'&page='.$page.$addAction);
+	
+	if($targetTable == 'comment') {
+		$GR->error('글이 정상적으로 삭제되었습니다', 0, 'board.php?id='.$id.'&articleNo='.$articleNo.$addAction);
+	} else {
+		$GR->error('글이 정상적으로 삭제되었습니다', 0, 'board.php?id='.$id.'&page='.$page.$addAction);	
+	}
 }
 // 멤버나 손님이 남긴 글일 때 @sirini
 else {

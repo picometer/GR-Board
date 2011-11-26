@@ -1,0 +1,27 @@
+# session 디렉토리는 무시
+session/
+
+# phpThumb/cache 디렉토리는 무시
+phpThumb/cache/
+
+# data 디렉토리는 무시
+data/
+
+# passwd 디렉토리는 무시
+passwd/
+
+# member 디렉토리는 무시
+member/
+
+# icon 디렉토리는 무시
+icon/
+
+# db_info.php 파일은 무시
+db_info.php
+
+# config_member.php 파일은 무시
+config_member.php
+
+# no.use.htaccess 파일은 무시
+no.use.htaccess
+
