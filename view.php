@@ -268,8 +268,9 @@ if($isAdmin || ($tmpFetchBoard['comment_write_level'] <= $visitorLevel)) {
 			}
 		}
 		$comment['subject'] = 're) '.$comment['subject'];
-		$comment['content'] = ':'.$comment['content'];
-		$comment['content'] = nl2br(str_replace("\n", "\n:", $comment['content']));
+		# 원본 댓글을 다시 보여주지 않고 공백을 바로 보여주도록 변경 @sirini
+		#$comment['content'] = ':'.$comment['content'];
+		#$comment['content'] = nl2br(str_replace("\n", "\n:", $comment['content']));
 	}
 	elseif($modifyTarget && !$replyTarget) {
 		$comment = $GR->getArray('select member_key, name, email, homepage, bad, subject, content, '.
