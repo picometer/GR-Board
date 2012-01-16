@@ -14,7 +14,7 @@ if(!$grboard) exit();
 
 // 기본 클래스를 불러온다. @sirini
 $preRoute = $grboard . '/';
-include 'class/common.php';
+include_once 'class/common.php';
 $GR = new COMMON;
 $GR->dbConn();
 
