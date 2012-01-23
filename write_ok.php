@@ -70,13 +70,6 @@ $tmpFetchBoard = $GR->getArray("select * from {$dbFIX}board_list where id = '$id
 @include 'theme/'.$tmpFetchBoard['theme'].'/theme_write_ok.php';
 if(!$addExtendFieldQuery) $addExtendFieldQuery = '';
 
-// 트랙백 @sirini
-if($_POST['trackback']) {
-	$trackback = $_POST['trackback'];
-	$trackbackPattern = '(http|https)://([0-9a-zA-Z./@~?&=_]+)';
-	if(!ereg($trackbackPattern, $trackback)) $trackback = '올바른 트랙백 형식이 아닙니다. URL 형식으로 적어주세요.';
-} else $trackback = '';
-
 // 글쓴이 권한값 가져오기 @sirini
 if($_SESSION['no']) {
 	$sessionNo = $_SESSION['no'];
@@ -305,7 +298,6 @@ if(isset($mode) && $articleNo) {
 		content = '$content',
 		link1 = '$link1',
 		link2 = '$link2',
-		trackback = '$trackback',
 		tag = '$tag'
 		$addExtendFieldQuery
 		where no = '$articleNo'";
@@ -393,7 +385,6 @@ else {
 			content = '$content',
 			link1 = '$link1',
 			link2 = '$link2',
-			trackback = '$trackback',
 			tag = '$tag'
 			$addExtendFieldQuery";
 	$GR->query($sqlInsertQue);
@@ -440,14 +431,6 @@ else {
 		$GR->query("update {$dbFIX}member_list set point = point + 2 where no = '$sessionNo'");
 	}
 
-	if($trackback) {
-		$path = str_replace('/write_ok.php', '', $_SERVER['SCRIPT_NAME']);
-		$tArr = explode('/', $path);
-		$grboard = $tArr[count($tArr)-1];
-		$url = 'http://'.$_SERVER['HTTP_HOST'].'/'.$grboard.'/board.php?id='.$id.'&articleNo='.$insertNo;
-		$resultSendTrackback = $BLOG->sendTrackback($trackback, $url, $name, $subject, $content);
-		if($resultSendTrackback) $GR->error('트랙백을 보내는데 실패했습니다 :'.$resultSendTrackback, 0, 'board.php?id='.$id);
-	}
 }
 
 // 삭제 체크된 것들 먼저 처리 @sirini

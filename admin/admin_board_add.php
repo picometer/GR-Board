@@ -169,17 +169,6 @@ if(!defined('__GRBOARD__')) exit(); ?>
 			</div>
 
 			<div class="tableListLine">
-				<div class="tableLeft" title="이 게시판이 외부에서 전송된 트랙백을 받을 것인지 정합니다.">트랙백 사용</div>
-				<div class="tableRight">
-					<input type="checkbox" value="1" name="addIsTrackback" checked="checked" /> 
-					체크하시면 외부에서 전송된 트랙백(엮인글)을 받습니다.
-					<span class="sameBox" title="이 설정을 이 게시판이 속한 그룹 내에 소속된 게시판에 한해서 동일하게 적용합니다.">
-					<input type="checkbox" name="sameAddIsTrackback" value="1" /> 모두 변경</span>
-				</div>
-				<div class="clear"></div>
-			</div>
-
-			<div class="tableListLine">
 				<div class="tableLeft" title="일반 사용자가 html 을 사용할 수 있도록 할 것인지, 어떤 태그를 허용할 건지 정합니다.">HTML 허용</div>
 				<div class="tableRight">
 					<input type="text" class="input" name="addIsHtml" maxlength="200" style="width: 180px" value="b,font,span,strong,img,a,br,p,div,hr,u,del,i,strike,ol,ul,li,blockquote" />

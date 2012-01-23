@@ -24,7 +24,6 @@ $que[] = "create table {$dbFIX}board_list (
 	comment_page_num tinyint(4) not null default '10',
 	comment_page_per_list tinyint(4) not null default '5',
 	num_file tinyint(4) not null default '0',
-	is_trackback tinyint(4) not null default '1',
 	cut_subject tinyint(4) not null default '0',
 	is_full tinyint(4) not null default '0',
 	is_rss tinyint(2) not null default '1',

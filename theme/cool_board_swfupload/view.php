@@ -11,11 +11,7 @@ $content = autoImgResize($maxImageWidth, $content);
 	<?php echo $subject; ?>
 	
 	<div class="btn">
-		
-		<?php if($isTrackback): ?>
-			<input type="button" onclick="clickToCopy('<?php echo $trackbackUrl; ?>');" title="이 글의 엮인글(트랙백) 주소 입니다." value="트랙백" />
-		<?php endif; ?>
-		
+				
 		<?php if($view['link1']): ?>
 			<input type="button" onclick="window.open('<?php echo htmlspecialchars($view['link1']); ?>', '_blank'); return false" title="링크 #1 이 있습니다." value="링크1" />
 		<?php endif; ?>
@@ -23,10 +19,6 @@ $content = autoImgResize($maxImageWidth, $content);
 		<?php if($view['link2']): ?>
 			<input type="button" onclick="window.open('<?php echo htmlspecialchars($view['link2']); ?>', '_blank'); return false" title="링크 #2 이 있습니다." value="링크2" />
 		<?php endif; ?>
-
-		<?php if($isWriter): ?>
-			<input type="button" onclick="window.open('<?php echo $grboard; ?>/sync.php?id=<?php echo $id; ?>&amp;articleNo=<?php echo $articleNo; ?>', 'sinkNET', 'width=10,height=10,menubar=no');" title="이 글을 시리니넷 SinkNET™ 에 싱크(Sync) 합니다." value="싱크" />
-		<?php endif; ?> 
 		
 		<input type="button" onclick="location.href='<?php echo $grboard; ?>/board.php?id=<?php echo $id; ?>&amp;articleNo=<?php echo $articleNo; ?>&amp;good=1';" title="이 글이 좋습니다." value="좋아요 (<?php echo $view['good']; ?>)" /> 
 

@@ -115,9 +115,6 @@ include $theme . '/head.php';
 <div id="fileUploadField">
 	<div>
 		<ul class="noneStyle">
-			<?php if(!$mode): ?>
-				<li><span style="padding-right: 6px" title="다른 게시판/블로그에 관련된 글을 원거리에서 달 수 있습니다.">트 랙 백:</span> <input type="text" name="trackback" size="73" class="input" value="<?php echo $modify['trackback']; ?>" title="다른 게시판/블로그에 관련된 글을 원거리에서 달 수 있습니다." /></li>
-			<?php endif; ?>
 
 			<?php if(isset($totalFiles)): ?>
 

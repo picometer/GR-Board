@@ -101,7 +101,6 @@ if($sameModifyCommentPageNum) $GR->query("update {$dbFIX}board_list set comment_
 if($sameModifyCommentPagePerList) $GR->query("update {$dbFIX}board_list set comment_page_per_list = '$modifyCommentPagePerList' where group_no = '$modifyGroup'");
 if($sameModifyNumFile) $GR->query("update {$dbFIX}board_list set num_file = '$modifyNumFile' where group_no = '$modifyGroup'");
 if($sameModifyIsRss) $GR->query("update {$dbFIX}board_list set is_rss = '$modifyIsRss' where group_no = '$modifyGroup'");
-if($sameModifyIsTrackback) $GR->query("update {$dbFIX}board_list set is_trackback = '$modifyIsTrackback' where group_no = '$modifyGroup'");
 if($sameModifyIsHtml) $GR->query("update {$dbFIX}board_list set is_html = '$modifyIsHtml' where group_no = '$modifyGroup'");
 if($sameModifyIsEditor) $GR->query("update {$dbFIX}board_list set is_editor = '$modifyIsEditor' where group_no = '$modifyGroup'");
 if($sameModifyCutSubject) $GR->query("update {$dbFIX}board_list set cut_subject = '$modifyCutSubject' where group_no = '$modifyGroup'");
@@ -142,7 +141,6 @@ if(array_key_exists('isAddBoard', $_POST) && $_POST['isAddBoard']) {
 		content text,
 		link1 varchar(255),
 		link2 varchar(255),	
-		trackback varchar(255),
 		tag varchar(255),
 		primary key(no),
 		key member_key(member_key),
@@ -203,7 +201,6 @@ if(array_key_exists('isAddBoard', $_POST) && $_POST['isAddBoard']) {
 			comment_page_num = '$addCommentPageNum',
 			comment_page_per_list = '$addCommentPagePerList',
 			num_file = '$addNumFile',
-			is_trackback = '$addIsTrackback',
 			cut_subject = '$addCutSubject',
 			is_full = '$addIsFull',
 			is_rss = '$addIsRss',
@@ -236,7 +233,6 @@ if(array_key_exists('isAddBoard', $_POST) && $_POST['isAddBoard']) {
 	if($sameAddCommentPageNum) $GR->query("update {$dbFIX}board_list set comment_page_num = '$addCommentPageNum' where group_no = '$addGroup'");
 	if($sameAddCommentPagePerList) $GR->query("update {$dbFIX}board_list set comment_page_per_list = '$addCommentPagePerList' where group_no = '$addGroup'");
 	if($sameAddNumFile) $GR->query("update {$dbFIX}board_list set num_file = '$addNumFile' where group_no = '$addGroup'");
-	if($sameAddIsTrackback) $GR->query("update {$dbFIX}board_list set is_trackback = '$addIsTrackback' where group_no = '$addGroup'");
 	if($sameAddCutSubject) $GR->query("update {$dbFIX}board_list set cut_subject = '$addCutSubject' where group_no = '$addGroup'");
 	if($sameAddIsFull) $GR->query("update {$dbFIX}board_list set is_rss = '$addIsRss' where group_no = '$addGroup'");
 	if($sameAddIsFull) $GR->query("update {$dbFIX}board_list set is_full = '$addIsFull' where group_no = '$addGroup'");
@@ -286,7 +282,6 @@ if(array_key_exists('isModifyBoard', $_POST) && $_POST['isModifyBoard']) {
 			comment_page_num = '$modifyCommentPageNum',
 			comment_page_per_list = '$modifyCommentPagePerList',
 			num_file = '$modifyNumFile',
-			is_trackback = '$modifyIsTrackback',
 			cut_subject = '$modifyCutSubject',
 			is_full = '$modifyIsFull',
 			is_rss = '$modifyIsRss',
@@ -333,7 +328,6 @@ if(array_key_exists('deleteBoardNo', $_GET) && $_GET['deleteBoardNo'] && $_GET['
 	$GR->query('delete from '.$dbFIX.'pds_save where id = \''.$deleteBoardId.'\'');
 	$GR->query('delete from '.$dbFIX.'pds_extend where id = '.$deleteBoardId.'\'');
 	$GR->query('delete from '.$dbFIX.'time_bomb where id = \''.$deleteBoardId.'\'');
-	$GR->query('delete from '.$dbFIX.'trackback_save where board_id = \''.$deleteBoardId.'\'');
 	$GR->query('delete from '.$dbFIX.'total_article where id = \''.$deleteBoardId.'\'');
 	$GR->query('delete from '.$dbFIX.'total_comment where id = \''.$deleteBoardId.'\'');
 	$GR->query('delete from '.$dbFIX.'tag_list where id = \''.$deleteBoardId.'\'');
