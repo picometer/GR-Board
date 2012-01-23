@@ -82,10 +82,10 @@ function loginLogDelete() {
 	}
 }
 
-// 트랙백을 모두 삭제할 것인지 물어보기
-function deleteTrackback() {
-	if(confirm('별도로 보관중인 트랙백들을 모두 삭제하시겠습니까?')) {
-		location.href='admin.php?deleteTrackback=1';
+// 내 알림을 모두 삭제할 것인지 물어보기
+function notiDelete() {
+	if(confirm('내 알림 기록들을 모두 삭제하시겠습니까?')) {
+		location.href='admin.php?notiDelete=1';
 	}
 }
 

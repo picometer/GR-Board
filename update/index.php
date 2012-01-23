@@ -100,6 +100,7 @@ $que[] = "alter table `{$dbFIX}member_list` add blocks int(11) not null default 
 $que[] = "create table `{$dbFIX}notification` ( no int(11) not null auto_increment, to_key int(11) not null default '0', from_key int(11) not null default '0'," . 
 	"act tinyint(2) not null default '0', bbs_id varchar(50) not null default '', bbs_no int(11) not null default '0', is_checked tinyint(1) not null default '0', " . 
 	"primary key(no), key(to_key))";
+$que[] = 'drop table '.$dbFIX.'trackback_save';
 
 // run query
 for($i=0; $i<count($que); $i++) @mysql_query($que[$i]);
@@ -173,6 +174,7 @@ include '../html_head.php';
 
 <strong>DB Table 업데이트 내역</strong>
 <ul>
+	<li><em>트랙백을 별도로 보관하던 장소를 제거하였습니다. (gr_trackback_save)</em></li>
 	<li><em>알림 내역들을 기록하는 테이블을 추가하였습니다. (gr_notification)</em></li>
   <li>일정 로그인 횟수이상 실패시, 로그인을 차단할 수 있습니다.</li>
   <li>영문으로만 작성된 글을 차단할 수 있습니다.</li>

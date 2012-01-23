@@ -136,10 +136,10 @@ include 'admin/admin_left_menu.php';
 			</div>
 
 			<div class="tableListLine">
-				<div class="tableLeft" title="GR보드가 받은 트랙백 수를 확인합니다. 별도로 기록된 트랙백들은 주기적으로 삭제하시는 것이 좋습니다.">날라온 트랙백 수</div>
+				<div class="tableLeft" title="보관중인 내 알림들의 갯수를 확인합니다. 주기적으로 초기화 해주시는 게 서버에 좋습니다.">내 알림 갯수</div>
 				<div class="tableRight">
-					<span class="miniBold"><?php echo $totalTrackbackNum[0]; ?></span> 개
-					<a href="#" onclick="deleteTrackback();" title="별도로 기록된 트랙백들을 모두 삭제합니다.">[모두삭제]</a>
+					<span class="miniBold"><?php echo $totalNotiNum[0]; ?></span> 개
+					<a href="#" onclick="notiDelete();" title="내 알림들을 모두 삭제합니다.">[모두삭제]</a>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -450,42 +450,6 @@ include 'admin/admin_left_menu.php';
 			<?php } # paging ?>
 		
 		</div><!--# 오류기록 -->
-
-		<div class="vSpace"></div>
-
-		<!-- 트랙백 -->
-		<div class="mvBack" id="admTrackbackTable">
-			<div class="mv">최근 트랙백</div>
-			<?php
-			// 시작레코드열 구함
-			if(array_key_exists('traPage', $_GET)) $traPage = $_GET['traPage'];
-			if(!$traPage) $traPage = 1;
-			$traFromRecord = ($traPage - 1) * 10;
-			$traTotalPage = ceil($totalTrackbackNum[0] / 10);
-
-			// 트랙백 10개씩 뿌림
-			$getTrackback = $GR->query('select no, board_id, article_no, subject, signdate from '.$dbFIX.'trackback_save order by no desc limit '.$traFromRecord.', 10');
-			while($tra = $GR->fetch($getTrackback))
-			{
-				?>
-			<div class="tableListLine">
-				<div class="tableLeft"><?php echo date('Y.m.d', $tra['signdate']); ?></div>
-				<div class="tableRight">
-					<a href="board.php?id=<?php echo $tra['board_id']; ?>&amp;articleNo=<?php echo $tra['article_no']; ?>" title="이 트랙백이 달린 게시물을 보러 갑니다." class="normal"><?php echo stripslashes($tra['subject']); ?></a>
-					<a href="admin.php?deleteTrackbackNo=<?php echo $tra['no']; ?>" title="이 트랙백을 삭제합니다. 코멘트로 보여지는 트랙백은 삭제되지 않습니다.">ⓧ</a>
-				</div>
-				<div class="clear"></div>
-			</div>
-				<?php
-			} # while
-
-			// 트랙백 페이징
-			if($totalTrackbackNum[0] > 10) {
-			?>
-			<div class="paging"><?php echo $GR->getPaging(10, $traPage, $traTotalPage, 'admin.php?traPage=', 0, 0, '', '', '', '#admTrackbackTable'); ?></div>
-			<?php } # paging ?>
-		
-		</div><!--# 트랙백 -->
 
 		<div class="vSpace"></div>
 

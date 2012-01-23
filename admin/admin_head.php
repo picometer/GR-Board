@@ -127,6 +127,12 @@ if($_GET['memoDelete']) {
 	$GR->error('오래된 쪽지들을 모두 정리했습니다.', 0, 'admin.php');
 }
 
+// 내 알림을 정리한다면 처리 @sirini
+if($_GET['notiDelete']) {
+	$GR->query('truncate '.$dbFIX.'notification');
+	$GR->error('내 알림 목록을 초기화 했습니다.', 0, 'admin.php');
+}
+
 // 사용중인 Table 의 오류들을 수정하고 최적화 한다. @sirini
 if($_GET['repairDB']) {
 	$getAllTable = $GR->query('select id from '.$dbFIX.'board_list');
@@ -141,7 +147,6 @@ if($_GET['repairDB']) {
 	$GR->query('repair table '.$dbFIX.'member_list');
 	$GR->query('repair table '.$dbFIX.'error_save');
 	$GR->query('repair table '.$dbFIX.'pds_save');
-	$GR->query('repair table '.$dbFIX.'trackback_save');
 	$GR->query('repair table '.$dbFIX.'group_list');
 	$GR->query('repair table '.$dbFIX.'poll_option');
 	$GR->query('repair table '.$dbFIX.'poll_comment');
@@ -157,11 +162,11 @@ if($_GET['repairDB']) {
 	$GR->query('repair table '.$dbFIX.'tag_list');
 	$GR->query('repair table '.$dbFIX.'article_option');
 	$GR->query('repair table '.$dbFIX.'login_log');
+	$GR->query('repair table '.$dbFIX.'notification');
 	$GR->query('optimize table '.$dbFIX.'board_list');
 	$GR->query('optimize table '.$dbFIX.'member_list');
 	$GR->query('optimize table '.$dbFIX.'error_save');
 	$GR->query('optimize table '.$dbFIX.'pds_save');
-	$GR->query('optimize table '.$dbFIX.'trackback_save');
 	$GR->query('optimize table '.$dbFIX.'group_list');
 	$GR->query('optimize table '.$dbFIX.'poll_option');
 	$GR->query('optimize table '.$dbFIX.'poll_comment');
@@ -177,6 +182,7 @@ if($_GET['repairDB']) {
 	$GR->query('optimize table '.$dbFIX.'tag_list');
 	$GR->query('optimize table '.$dbFIX.'article_option');
 	$GR->query('optimize table '.$dbFIX.'login_log');
+	$GR->query('optimize table '.$dbFIX.'notification');
 	$GR->error('모든 테이블의 오류를 수정하고, 최적화를 실시했습니다.', 0, 'admin.php');
 }
 
@@ -214,7 +220,7 @@ $totalPdsNum = $GR->getArray('select count(*) from '.$dbFIX.'pds_save');
 $totalPdsExtendNum = $GR->getArray('select count(*) from '.$dbFIX.'pds_extend');
 $totalErrorNum = $GR->getArray('select count(*) from '.$dbFIX.'error_save');
 $totalMemoNum = $GR->getArray('select count(*) from '.$dbFIX.'memo_save');
-$totalTrackbackNum = $GR->getArray('select count(*) from '.$dbFIX.'trackback_save');
+$totalNotiNum = $GR->getArray('select count(*) from '.$dbFIX.'notification');
 $totalPollCommentNum = $GR->getArray('select count(*) from '.$dbFIX.'poll_comment');
 $totalLoginLogNum = $GR->getArray('select count(*) from '.$dbFIX.'login_log');
 

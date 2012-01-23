@@ -108,18 +108,6 @@ $que[] = "create table {$dbFIX}memo_save (
 	key sender_key(sender_key)
 )";
 
-// 트랙백 저장공간생성
-$que[] = 'create table '.$dbFIX.'trackback_save ( '.
-	'no int(11) not null auto_increment, '.
-	'board_id varchar(50) not null default \'\', '.
-	'article_no int(11) not null default \'0\', '.
-	'name varchar(20) not null default \'\', '.
-	'url varchar(255) not null default \'\', '.
-	'subject varchar(255) not null default \'\', '.
-	'content text, '.
-	'signdate int(11) not null default \'0\', '.
-	'primary key(no))';
-
 // 그룹 테이블 생성
 $que[] = 'create table '.$dbFIX.'group_list ( '.
 	'no int(11) not null auto_increment, '.

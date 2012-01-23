@@ -26,7 +26,6 @@ if( $_POST['isSure'] == 'YES' ) {
 	$GR->query('drop table '.$dbFIX.'pds_save');
 	$GR->query('drop table '.$dbFIX.'error_save');
 	$GR->query('drop table '.$dbFIX.'memo_save');
-	$GR->query('drop table '.$dbFIX.'trackback_save');
 	$GR->query('drop table '.$dbFIX.'group_list');
 	$GR->query('drop table '.$dbFIX.'poll_comment');
 	$GR->query('drop table '.$dbFIX.'poll_option');
@@ -44,6 +43,7 @@ if( $_POST['isSure'] == 'YES' ) {
 	$GR->query('drop table '.$dbFIX.'article_option');
 	$GR->query('drop table '.$dbFIX.'login_log');
 	$GR->query('drop table '.$dbFIX.'pds_list');
+	$GR->query('drop table '.$dbFIX.'notification');
 	
 	// DB 접속 저장파일을 삭제한다.
 	@chmod('db_info.php', 0707);
