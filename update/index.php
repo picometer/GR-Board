@@ -42,8 +42,6 @@ $que[] = "create table `{$dbFIX}layout_config` ( no int(11) not null auto_increm
 	"primary key(no), key(opt))";
 $que[] = "alter table `{$dbFIX}poll_subject` add id varchar(50) not null default ''";
 $que[] = "alter table `{$dbFIX}poll_option` add id varchar(50) not null default ''";
-$que[] = "create table `{$dbFIX}scrap_book` ( no int(11) not null auto_increment, member_key int(11) not null default '0', id varchar(100) not null default '', ".
-	"article_num int(11) not null default '0', comment varchar(255) not null default '', primary key(no), key(member_key), key(id))";
 $que[] = "create table `{$dbFIX}report` ( no int(11) not null auto_increment, id varchar(100) not null default '', article_num int(11) not null default '0', ".
 	"reporter int(11) not null default '0', reason varchar(255) not null default '', status tinyint(2) not null default '0', primary key(no), key(id), key(article_num), key(status))";
 $que[] = "create table `{$dbFIX}auto_save` ( no int(11) not null auto_increment, member_key int(11) not null default '0', ".
@@ -52,13 +50,11 @@ $que[] = "create table `{$dbFIX}auto_save` ( no int(11) not null auto_increment,
 // after v1.7.8
 $getOutlogin = @mysql_fetch_array(mysql_query('select var from '.$dbFIX.'layout_config where opt = \'outlogin_skin\''));
 $getJoinus = @mysql_fetch_array(mysql_query('select var from '.$dbFIX.'layout_config where opt = \'join_skin\''));
-$getScrapView = @mysql_fetch_array(mysql_query('select var from '.$dbFIX.'layout_config where opt = \'scrap_view_skin\''));
 $getMemo = @mysql_fetch_array(mysql_query('select var from '.$dbFIX.'layout_config where opt = \'memo_skin\''));
 $getReport = @mysql_fetch_array(mysql_query('select var from '.$dbFIX.'layout_config where opt = \'report_skin\''));
 $getInfoPage = @mysql_fetch_array(mysql_query('select var from '.$dbFIX.'layout_config where opt = \'info_skin\''));
 if(!$getOutlogin['var']) $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'outlogin_skin', var = 'new_default'";
 if(!$getJoinus['var']) $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'join_skin', var = 'default'";
-if(!$getScrapView['var']) $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'scrap_view_skin', var = 'default'";
 if(!$getMemo['var']) $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'memo_skin', var = 'default'";
 if(!$getReport['var']) $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'report_skin', var = 'default'";
 if(!$getInfoPage['var']) $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'info_skin', var = 'new_default'";
@@ -101,6 +97,7 @@ $que[] = "create table `{$dbFIX}notification` ( no int(11) not null auto_increme
 	"act tinyint(2) not null default '0', bbs_id varchar(50) not null default '', bbs_no int(11) not null default '0', is_checked tinyint(1) not null default '0', " . 
 	"primary key(no), key(to_key))";
 $que[] = 'drop table '.$dbFIX.'trackback_save';
+$que[] = 'drop table '.$dbFIX.'scrap_book';
 
 // run query
 for($i=0; $i<count($que); $i++) @mysql_query($que[$i]);

@@ -183,15 +183,6 @@ $que[] = "create table {$dbFIX}layout_config (
 	opt varchar(50) not null default '',
 	var text, primary key(no), key(opt))";
 
-// 스크랩북
-$que[] = "create table `{$dbFIX}scrap_book` ( 
-	no int(11) not null auto_increment, 
-	member_key int(11) not null default '0', 
-	id varchar(100) not null default '', 
-	article_num int(11) not null default '0', 
-	comment varchar(255) not null default '', 
-	primary key(no), key(member_key), key(id))";
-
 // 신고 게시물
 $que[] = "create table `{$dbFIX}report` ( 
 	no int(11) not null auto_increment, 
@@ -269,7 +260,6 @@ $que[] = "create table `{$dbFIX}notification` (
 $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'outlogin_skin', var = 'new_default'";
 $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'info_skin', var = 'new_default'";
 $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'join_skin', var = 'new_default'";
-$que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'scrap_view_skin', var = 'default'";
 $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'memo_skin', var = 'default'";
 $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'report_skin', var = 'new_default'";
 $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'notify_skin', var = 'default'";

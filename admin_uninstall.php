@@ -35,7 +35,6 @@ if( $_POST['isSure'] == 'YES' ) {
 	$GR->query('drop table '.$dbFIX.'total_comment');
 	$GR->query('drop table '.$dbFIX.'member_group');
 	$GR->query('drop table '.$dbFIX.'layout_config');
-	$GR->query('drop table '.$dbFIX.'scrap_book');
 	$GR->query('drop table '.$dbFIX.'report');
 	$GR->query('drop table '.$dbFIX.'auto_save');
 	$GR->query('drop table '.$dbFIX.'pds_extend');

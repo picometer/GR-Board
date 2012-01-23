@@ -18,7 +18,6 @@
 		<a href="<?php echo $grboard; ?>/info.php?boardId=<?php echo $id; ?>" title="내 정보를 봅니다.">내정보</a>
 		<a href="<?php echo $grboard; ?>/logout.php?id=<?php echo $id; ?>" title="로그아웃 합니다.">로그아웃</a>
 		<a href="<?php echo $grboard; ?>/view_memo.php" id="viewMemoBtn" title="내 쪽지함을 열어 봅니다.">쪽지함</a>
-		<a href="<?php echo $grboard; ?>/view_scrap.php" id="viewScrapBtn" title="내 스크랩북을 열어 봅니다.">스크랩</a>
 	<?php endif; ?>
 
 	<?php if(!$isMember): /* 여기서부터는 로그인 안한 상태일 때 출력 */ ?>

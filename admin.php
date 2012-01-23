@@ -269,24 +269,6 @@ include 'admin/admin_left_menu.php';
 			</div>
 
 			<div class="tableListLine">
-				<div class="tableLeft" title="[팝업창] GR보드 자체 내의 스크랩북 테마를 선택합니다.">스크랩북</div>
-				<div class="tableRight">
-				<select name="scrapTheme">
-				<?php
-				$getScrapSkin = $GR->getArray('select var from '.$dbFIX.'layout_config where opt = \'scrap_view_skin\' limit 1');
-				$getScrapDir = @opendir('admin/theme/scrap/');
-				while($scrapDir = @readdir($getScrapDir)) { 
-					if($scrapDir == '.' || $scrapDir == '..') continue;
-				?>
-					<option value="<?php echo $scrapDir; ?>"<?php echo ($getScrapSkin['var']==$scrapDir)?' selected="selected"':''; ?>><?php echo $scrapDir; ?></option>
-				<?php } ?>
-				</select>
-				스크랩북은 새 창으로 띄워집니다. 게시판 상/하단 디자인과 연동되지 않습니다.
-				</div>
-				<div class="clear"></div>
-			</div>
-
-			<div class="tableListLine">
 				<div class="tableLeft" title="[팝업창] GR보드 자체 내의 신고함 테마를 선택합니다.">신고함</div>
 				<div class="tableRight">
 				<select name="reportTheme">
@@ -450,39 +432,6 @@ include 'admin/admin_left_menu.php';
 			<?php } # paging ?>
 		
 		</div><!--# 오류기록 -->
-
-		<div class="vSpace"></div>
-
-		<!-- 현재 접속자 목록 -->
-		<div class="mvBack" id="admNowConnectList">
-			<div class="mv">현재 접속자 목록</div>
-			<ul class="cate">
-			<?php
-			// 시작레코드열 구함
-			if(array_key_exists('connPage', $_GET)) $connPage = $_GET['connPage'];
-			if(!$connPage) $connPage = 1;
-			$connFromRecord = ($connPage - 1) * 20;
-			$totalConnNum = $GR->getArray('select count(*) from '.$dbFIX.'member_list where lastlogin > '.(time()-600));
-			$connTotalPage = ceil($totalConnNum[0] / 20);
-
-			// 10분 전에 로그인한 멤버 목록을 가져와서 20개씩 뿌림
-			$getNowConnect = $GR->query('select no, id, nickname, nametag, icon, lastlogin from '.$dbFIX.'member_list where lastlogin > '.(time()-600).' order by lastlogin desc limit '.$connFromRecord.', 20');
-			while($conn = $GR->fetch($getNowConnect))
-			{
-				$name = stripslashes($conn['nickname']);
-				if($conn['nametag']) $name = '<img src="'.$conn['nametag'].'" alt="'.$conn['nickname'].'" />';
-				if($conn['icon']) $name = '<img src="'.$conn['icon'].'" alt="" /> '.$name;
-				echo '<li>'.$name.' <span class="caution">(마지막 로그인 시간: '.date('H:i:s', $conn['lastlogin']).')</span></li>'; 
-			}
-			echo '</ul>';
-
-			// 로그인 멤버 페이징
-			if($totalConnNum[0] > 20) {
-			?>
-			<div class="paging"><?php echo $GR->getPaging(10, $connPage, $connTotalPage, 'admin.php?connPage=', 0, 0, '', '', '', '#admNowConnectList'); ?></div>
-			<?php } # paging ?>
-		
-		</div><!--# 현재 접속자 목록 -->
 
 		<div class="vSpace"></div>
 

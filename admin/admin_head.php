@@ -106,7 +106,6 @@ if($_POST['subPageConfirm']) {
 	$GR->query('update '.$dbFIX."layout_config set var = '".$_POST['loginTheme']."' where opt = 'outlogin_skin'");
 	$GR->query('update '.$dbFIX."layout_config set var = '".$_POST['memoTheme']."' where opt = 'memo_skin'");
 	$GR->query('update '.$dbFIX."layout_config set var = '".$_POST['joinTheme']."' where opt = 'join_skin'");
-	$GR->query('update '.$dbFIX."layout_config set var = '".$_POST['scrapTheme']."' where opt = 'scrap_view_skin'");
 	$GR->query('update '.$dbFIX."layout_config set var = '".$_POST['reportTheme']."' where opt = 'report_skin'");
 	$GR->query('update '.$dbFIX."layout_config set var = '".$_POST['notifyTheme']."' where opt = 'notify_skin'");
 	$GR->query('update '.$dbFIX."layout_config set var = '".$_POST['infoTheme']."' where opt = 'info_skin'");
@@ -155,7 +154,6 @@ if($_GET['repairDB']) {
 	$GR->query('repair table '.$dbFIX.'total_article');
 	$GR->query('repair table '.$dbFIX.'total_comment');
 	$GR->query('repair table '.$dbFIX.'member_group');
-	$GR->query('repair table '.$dbFIX.'scrap_book');
 	$GR->query('repair table '.$dbFIX.'report');
 	$GR->query('repair table '.$dbFIX.'auto_save');
 	$GR->query('repair table '.$dbFIX.'pds_extend');
@@ -175,7 +173,6 @@ if($_GET['repairDB']) {
 	$GR->query('optimize table '.$dbFIX.'total_article');
 	$GR->query('optimize table '.$dbFIX.'total_comment');
 	$GR->query('optimize table '.$dbFIX.'member_group');
-	$GR->query('optimize table '.$dbFIX.'scrap_book');
 	$GR->query('optimize table '.$dbFIX.'report');
 	$GR->query('optimize table '.$dbFIX.'auto_save');
 	$GR->query('optimize table '.$dbFIX.'pds_extend');

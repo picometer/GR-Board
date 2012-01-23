@@ -2,43 +2,6 @@
 // 블로그 호환 클래스; PHP4 & PHP5 호환됨;
 class BLOG
 {
-	// 트랙백 보내기
-	function sendTrackback($tb_url, $url, $sender, $subject, $content) 
-	{
-		$subject = strip_tags($subject);
-		$content = strip_tags($content);
-		$tmp_data = 'url='.rawurlencode($url).
-			'&title='.rawurlencode($subject).
-			'&blog_name='.rawurlencode($sender).
-			'&excerpt='.rawurlencode($content);
-		$uinfo = parse_url($tb_url);
-		if($uinfo['query']) $tmp_data .= '&'.$uinfo['query'];
-		if(!$uinfo['port']) $uinfo['port'] = 80;
-		$send_str = 'POST '.$uinfo['path']." HTTP/1.1\r\n".
-			'Host: '.$uinfo['host']."\r\n".
-			"User-Agent: GR Board\r\n".
-			"Content-Type: application/x-www-form-urlencoded\r\n".
-			'Content-length: '.strlen($tmp_data)."\r\n".
-			"Connection: close\r\n\r\n".$tmp_data;
-		$fp = fsockopen($uinfo['host'], $uinfo['port']);
-		if(!$fp) return '트랙백 URL이 존재하지 않습니다.';
-		$fp = fsockopen($uinfo['host'], $uinfo['port']);
-		fputs($fp,$send_str);
-		while(!feof($fp)) $response .= fgets($fp, 128);
-		fclose($fp);
-		if(!strstr($response, '<response>')) return '올바른 트랙백 URL이 아닙니다.';
-		$response = strchr($response, '<?');
-		$response = substr($response, 0, strpos($response, '</response>'));
-		if(strstr($response, '<error>0</error>')) return '';
-		else
-		{
-			$tb_error_str = strchr($response, '<message>');
-			$tb_error_str = substr($tb_error_str, 0, strpos($tb_error_str, '</message>'));
-			$tb_error_str = str_replace('<message>', '', $tb_error_str);
-			return '트랙백 전송중 오류가 발생했습니다: '.$tb_error_str;
-		}
-	}
-
 	// RSS 만들기
 	function makeRss($id)
 	{
