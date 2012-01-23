@@ -9,7 +9,7 @@
 
 		<!-- 정보 보기 박스 -->
 		<fieldset>
-			<legend class="legend"><?php echo $member['realname']; ?>님의 신상명세서</legend>
+			<legend class="legend"><?php echo $member['nickname']; ?>님의 신상명세서</legend>
 			
 			<?php if($_SESSION['no'] == 1) {?>
 			<div class="tableListLine">
