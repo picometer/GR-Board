@@ -98,6 +98,11 @@ $que[] = "create table `{$dbFIX}notification` ( no int(11) not null auto_increme
 	"primary key(no), key(to_key))";
 $que[] = 'drop table '.$dbFIX.'trackback_save';
 $que[] = 'drop table '.$dbFIX.'scrap_book';
+$que[] = 'alter table '.$dbFIX.'board_list drop is_trackback';
+$bbsList192 = @mysql_query('select id from '.$dbFIX.'board_list');
+while($list192 = @mysql_fetch_array($bbsList192)) {
+	$que[] = 'alter table '.$dbFIX.'bbs_'.$list192['id'].' drop trackback';
+}
 
 // run query
 for($i=0; $i<count($que); $i++) @mysql_query($que[$i]);
@@ -171,6 +176,8 @@ include '../html_head.php';
 
 <strong>DB Table 업데이트 내역</strong>
 <ul>
+	<li><em>각 게시판마다 트랙백 주소를 받을 수 있는 컬럼 영역을 제거하였습니다. (gr_bbs_* 의 trackback 컬럼)</em></li>
+	<li><em>게시판 설정에서 트랙백 받기 유무를 제거하였습니다. (gr_board_list 의 is_trackback 컬럼)</em></li>
 	<li><em>트랙백을 별도로 보관하던 장소를 제거하였습니다. (gr_trackback_save)</em></li>
 	<li><em>알림 내역들을 기록하는 테이블을 추가하였습니다. (gr_notification)</em></li>
   <li>일정 로그인 횟수이상 실패시, 로그인을 차단할 수 있습니다.</li>
