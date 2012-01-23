@@ -118,4 +118,13 @@ function get_bbs_name($id) {
 	$result = $GR->getArray('select name from '.$dbFIX.'board_list where id = \''.$id.'\'');
 	return $result['name'];
 }
+
+// 활동 알림판 함수 정의 @sirini
+function noti($theme, $listNum=5, $title='내 알림') {
+	global $grboard, $dbFIX, $GR;
+	$path = $grboard.'/latest/'.$theme;
+	if(!is_dir($path)) { echo 'GR Board 내의 latest 폴더 안에 지정한 '.$theme.' 테마가 존재하지 않습니다.'; return; }
+	$getData = $GR->query('select from_key, act, bbs_id, bbs_no from '.$dbFIX.'notification where to_key = ' . $_SESSION['no'] . ' order by no desc limit ' . $listNum);
+	include $path.'/list.php';
+}
 ?>

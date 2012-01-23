@@ -181,14 +181,25 @@ if($good || $bad) {
 		else $updateVoteQue = 'bad = bad+1';
 		$GR->query("update {$dbFIX}bbs_{$id} set {$updateVoteQue} where no = '$articleNo'");
 		$_SESSION['vote'] = $_SESSION['vote'].',gr_vote_'.$articleNo;
+		
+		// 활동 알림판에도 기록해둠
+		if($view['member_key'] && $view['member_key'] != $_SESSION['no']) {
+			$GR->query("insert into {$dbFIX}notification set no = '', to_key = '".$view['member_key']."', from_key = '".$_SESSION['no']."', " . 
+				"act = '3', bbs_id = '$id', bbs_no = '$articleNo', is_checked = '0'");
+		}
 	}
-	else $GR->error('이미 추천하셨습니다.', 0, 'HISTORY_BACK');
-
 	if($voteCommentNo && strpos($_SESSION['voteComment'], 'gr_vote_comment_'.$voteCommentNo) === false) {
 		if($good) $updateVoteCommentQue = 'good = good+1';
 		else $updateVoteCommentQue = 'bad = bad+1';
 		$GR->query("update {$dbFIX}comment_{$id} set {$updateVoteCommentQue} where no = '$voteCommentNo'");
 		$_SESSION['voteComment'] = $_SESSION['voteComment'].',gr_vote_comment_'.$voteCommentNo;
+		
+		// 활동 알림판에도 기록해둠
+		$coWriter = $GR->getArray("select member_key from {$dbFIX}comment_{$id} where no = '$voteCommentNo'");
+		if($coWriter['member_key'] && $coWriter['member_key'] != $_SESSION['no']) {
+			$GR->query("insert into {$dbFIX}notification set no = '', to_key = '".$coWriter['member_key']."', from_key = '".$_SESSION['no']."', " . 
+				"act = '4', bbs_id = '$id', bbs_no = '$articleNo', is_checked = '0'");
+		}
 	}
 }
 

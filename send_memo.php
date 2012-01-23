@@ -27,6 +27,7 @@ if($_POST['sendOk']) {
 	$thisTime = $GR->grTime();
 	$GR->query("insert into {$dbFIX}memo_save set no = '', member_key = '$targetKey', sender_key = '$sessionNo', ".
 		"subject = '$subject', content = '$content', signdate = '$thisTime', is_view = '0'");
+	$GR->query("insert into {$dbFIX}notification set no = '', to_key = '$targetKey', from_key = '$sessionNo', act = '0', bbs_id = '', bbs_no = '', is_checked = '0'");
 	$GR->error($_POST['targetName'].' 님에게 쪽지를 보냈습니다.', 0, 'CLOSE');
 }
 

@@ -61,6 +61,18 @@ function createLatestCode()
 	return false;
 }
 
+// 내 알림 코드 생성하기
+function createNotiCode()
+{
+	t = document.forms['codeNoti'];
+	s = document.getElementById('notiPreviewCode');
+	c = document.getElementById('insertCSS9');
+	str = "&lt;?php noti('"+t.elements['notiTheme'].value+"', '"+t.elements['notiNum'].value+"', '"+t.elements['notiSubject'].value+"'); ?&gt;";
+	s.innerHTML = str;
+	c.innerHTML = '@import url('+GRBOARD+'/latest/'+t.elements['notiTheme'].value+'/style.css);';
+	return false;
+}
+
 // 외부로그인 코드 생성하기
 function createOutloginCode()
 {
@@ -156,6 +168,7 @@ function createNowConnectCode()
 
 // onsubmit 이벤트 잡아채기
 document.forms['codeLatest'].onsubmit = createLatestCode;
+document.forms['codeNoti'].onsubmit = createNotiCode;
 document.forms['codeOutlogin'].onsubmit = createOutloginCode;
 document.forms['codeTotalLatest'].onsubmit = createTotalLatestCode;
 document.forms['codeTotalComment'].onsubmit = createTotalCommentCode;

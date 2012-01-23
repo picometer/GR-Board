@@ -56,6 +56,7 @@ include 'admin/admin_left_menu.php';
 				<div id="insertCSS6"></div>
 				<div id="insertCSS7"></div>
 				<div id="insertCSS8"></div>
+				<div id="insertCSS9"></div>
 				<div><span style="color: green">/*]]&gt;*/</span>&lt;/style&gt;</div>
 				<div id="insertJS"></div>
 			</div>
@@ -192,6 +193,59 @@ include 'admin/admin_left_menu.php';
 			<div id="latestPreviewCode" class="codePreview">코드생성 을 클릭하시면 생성 됩니다.</div>
 
 		</div><!--# 최근게시물 생성 -->
+		</form>
+
+		<div class="vSpace"></div>
+		
+		<!-- 내 알림 생성 -->
+		<form id="codeNoti" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+		<div class="mvBack" id="admNotiCode">
+			<div class="mv">내 알림 생성</div>
+
+			<div class="tableListLine">
+				<div class="tableLeft" title="사용할 내 알림 테마를 선택합니다.">테마선택</div>
+				<div class="tableRight">
+					<select name="notiTheme">
+					<?php
+					$latestDir = @opendir('./latest/');
+					while($latests = @readdir($latestDir)) { if($latests == '.' || $latests == '..') continue; ?>
+					<option value="<?php echo $latests; ?>"><?php echo $latests; ?></option>
+					<?php } ?>
+					</select>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="tableListLine">
+				<div class="tableLeft" title="보여줄 게시물 수를 선택 합니다.">게시물 수</div>
+				<div class="tableRight">
+					<select name="notiNum">
+					<?php
+					for($i=1; $i<100; $i++) { ?>
+					<option value="<?php echo $i; ?>"<?php echo (($i==5)?' selected="selected"':''); ?>><?php echo $i; ?></option>
+					<?php } ?>
+					</select>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="tableListLine">
+				<div class="tableLeft" title="내 알림 테마 상단의 제목을 정합니다.">내 알림 제목</div>
+				<div class="tableRight">
+					<input type="text" name="notiSubject" class="input" value="내 알림" />
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="tableListLine">
+				<div class="submitBox">
+					<input type="submit" value="코드 생성" title="최근게시물 코드를 생성 합니다." />
+				</div>
+			</div>
+
+			<div id="notiPreviewCode" class="codePreview">코드생성 을 클릭하시면 생성 됩니다.</div>
+
+		</div><!--# 내 알림 생성 -->
 		</form>
 
 		<div class="vSpace"></div>
