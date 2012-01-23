@@ -154,6 +154,7 @@ if($_GET['repairDB']) {
 	$GR->query('repair table '.$dbFIX.'total_article');
 	$GR->query('repair table '.$dbFIX.'total_comment');
 	$GR->query('repair table '.$dbFIX.'member_group');
+	$GR->query('repair table '.$dbFIX.'layout_config');
 	$GR->query('repair table '.$dbFIX.'report');
 	$GR->query('repair table '.$dbFIX.'auto_save');
 	$GR->query('repair table '.$dbFIX.'pds_extend');
@@ -173,6 +174,7 @@ if($_GET['repairDB']) {
 	$GR->query('optimize table '.$dbFIX.'total_article');
 	$GR->query('optimize table '.$dbFIX.'total_comment');
 	$GR->query('optimize table '.$dbFIX.'member_group');
+	$GR->query('optimize table '.$dbFIX.'layout_config');
 	$GR->query('optimize table '.$dbFIX.'report');
 	$GR->query('optimize table '.$dbFIX.'auto_save');
 	$GR->query('optimize table '.$dbFIX.'pds_extend');

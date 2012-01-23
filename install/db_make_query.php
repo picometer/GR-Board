@@ -177,7 +177,7 @@ $que[] = "create table {$dbFIX}member_group (
    make_time int(11) not null default '0',
    primary key(no))";
  
-// 레이아웃 매니저용
+// GR보드 기본기능 테마 저장소
 $que[] = "create table {$dbFIX}layout_config (
 	no int(11) not null auto_increment,
 	opt varchar(50) not null default '',

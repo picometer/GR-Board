@@ -28,7 +28,6 @@ if(!defined('__GRBOARD__')) exit(); ?>
 			<div class="menu<?php echo ($_GET['v']==6)?'View':''; ?>"><a href="admin_member.php?v=6" title="멤버들을 관리합니다."><img src="image/admin/admin_user.gif" alt="" /> 회원관리</a></div>
 			<div class="menu<?php echo ($_GET['v']==7)?'View':''; ?>"><a href="admin_poll.php?v=7" title="설문조사를 실시합니다."><img src="image/admin/admin_poll.gif" alt="" /> 설문조사</a></div>
 			<div class="menu<?php echo ($_GET['v']==8)?'View':''; ?>"><a href="admin_code.php?v=8" title="최근게시물/외부로그인 등의 코드를 쉽게 생성합니다."><img src="image/admin/admin_code_create.gif" alt="" /> 코드생성</a></div>
-			<div class="menu<?php echo ($_GET['v']==9)?'View':''; ?>"><a href="admin_layout.php?v=9" title="간편한 설정으로 웹사이트를 쉽게 제작 합니다."><img src="image/admin/admin_layout_manager.gif" alt="" /> 레이아웃 매니저</a></div>
 			<div class="menu<?php echo ($_GET['v']==10)?'View':''; ?>"><a href="admin_report.php?v=10" title="신고된 게시물들을 한 눈에 확인합니다."><img src="image/icon/article_trace_icon.gif" alt="" /> 신고 목록</a></div>
 			<div class="menu"><a href="update/" title="GR Board 를 업데이트 합니다." onclick="window.open(this.href, '_blank'); return false;"><img src="image/admin/mid_arrow.gif" alt="" /> GR Board 업데이트</a></div>
 			<div class="menu"><a href="logout.php" title="로그아웃 합니다."><img src="image/admin/admin_logout.gif" alt="" /> 로그아웃</a></div>
