@@ -33,21 +33,21 @@ if(!$dbFIX) {
 
 $que = array();
 $que[] = "create table `{$dbFIX}member_group` ( no int(11) not null auto_increment, ".
-	"name varchar(50) not null default '', make_time int(11) not null default '0', primary key(no)) TYPE=MyISAM CHARSET=utf8;";
+	"name varchar(50) not null default '', make_time int(11) not null default '0', primary key(no))";
 $que[] = "drop table `{$dbFIX}_member_group`";
 $que[] = "alter table `{$dbFIX}member_list` add group_no tinyint(2) not null default '1'";
 $que[] = "alter table `{$dbFIX}member_list` add icon varchar(255) not null default ''";
 $que[] = "alter table `{$dbFIX}board_list` add fix_time tinyint(2) not null default '0'";
 $que[] = "create table `{$dbFIX}layout_config` ( no int(11) not null auto_increment, opt varchar(50) not null default '', var text, ".
-	"primary key(no), key(opt)) TYPE=MyISAM CHARSET=utf8;";
+	"primary key(no), key(opt))";
 $que[] = "alter table `{$dbFIX}poll_subject` add id varchar(50) not null default ''";
 $que[] = "alter table `{$dbFIX}poll_option` add id varchar(50) not null default ''";
 $que[] = "create table `{$dbFIX}scrap_book` ( no int(11) not null auto_increment, member_key int(11) not null default '0', id varchar(100) not null default '', ".
-	"article_num int(11) not null default '0', comment varchar(255) not null default '', primary key(no), key(member_key), key(id)) TYPE=MyISAM CHARSET=utf8;";
+	"article_num int(11) not null default '0', comment varchar(255) not null default '', primary key(no), key(member_key), key(id))";
 $que[] = "create table `{$dbFIX}report` ( no int(11) not null auto_increment, id varchar(100) not null default '', article_num int(11) not null default '0', ".
-	"reporter int(11) not null default '0', reason varchar(255) not null default '', status tinyint(2) not null default '0', primary key(no), key(id), key(article_num), key(status)) TYPE=MyISAM CHARSET=utf8;";
+	"reporter int(11) not null default '0', reason varchar(255) not null default '', status tinyint(2) not null default '0', primary key(no), key(id), key(article_num), key(status))";
 $que[] = "create table `{$dbFIX}auto_save` ( no int(11) not null auto_increment, member_key int(11) not null default '0', ".
-	"subject varchar(255) not null default '', content text, signdate int(11) not null default '0', primary key(no), key(member_key)) TYPE=MyISAM CHARSET=utf8;";
+	"subject varchar(255) not null default '', content text, signdate int(11) not null default '0', primary key(no), key(member_key))";
 
 // after v1.7.8
 $getOutlogin = @mysql_fetch_array(mysql_query('select var from '.$dbFIX.'layout_config where opt = \'outlogin_skin\''));
@@ -63,9 +63,9 @@ if(!$getMemo['var']) $que[] = "insert into `{$dbFIX}layout_config` set no = '', 
 if(!$getReport['var']) $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'report_skin', var = 'default'";
 if(!$getInfoPage['var']) $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'info_skin', var = 'new_default'";
 $que[] = "create table `{$dbFIX}pds_extend` ( no int(11) not null auto_increment, id varchar(50) not null default '', article_num int(11) not null default '0', ".
-	"file_route varchar(255) not null default '', primary key(no), key(id), key(article_num)) TYPE=MyISAM CHARSET=utf8;";
+	"file_route varchar(255) not null default '', primary key(no), key(id), key(article_num))";
 $que[] = "create table `{$dbFIX}tag_list` ( no int(11) not null auto_increment, id varchar(50) not null default '', ".
-	"tag varchar(50) not null default '', count int(11) not null default '0', primary key(no), key(id)) TYPE=MyISAM CHARSET=utf8;";
+	"tag varchar(50) not null default '', count int(11) not null default '0', primary key(no), key(id))";
 
 // after v1.7.8 Plus Pack #2
 $que[] = "create table `{$dbFIX}article_option` ( no int(11) not null auto_increment, article_num int(11) not null default '0', ".
@@ -74,7 +74,7 @@ $getNotify = @mysql_fetch_array(mysql_query('select var from '.$dbFIX.'layout_co
 if(!$getNotify['var']) $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'notify_skin', var = 'default'";
 $que[] = "alter table `{$dbFIX}member_list` add lastlogin int(11) not null default '0'";
 $que[] = "create table `{$dbFIX}login_log` ( no int(11) not null auto_increment, member_key int(11) not null default '0', ".
-	"signdate int(11) not null default '0', primary key(no), key(member_key)) TYPE=MyISAM CHARSET=utf8;";
+	"signdate int(11) not null default '0', primary key(no), key(member_key))";
 $getInformation = @mysql_fetch_array(mysql_query('select var from '.$dbFIX.'layout_config where opt = \'info_skin\''));
 if(!$getInformation['var']) $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'info_skin', var = 'default'";
 
@@ -82,7 +82,7 @@ if(!$getInformation['var']) $que[] = "insert into `{$dbFIX}layout_config` set no
 $que[] = "alter table `{$dbFIX}board_list` add name varchar(100) not null default ''";
 $que[] = "create table `{$dbFIX}pds_list` ( no int(11) not null auto_increment, type tinyint(1) not null default '0', ".
 	"uid int(11) not null default '0', idx tinyint(2) not null default '0', ".
-	"name varchar(255) not null default '', primary key(no), key(type), key(uid)) TYPE=MyISAM CHARSET=utf8;";
+	"name varchar(255) not null default '', primary key(no), key(type), key(uid))";
 $que[] = "alter table `{$dbFIX}login_log` add ip varchar(20) not null default ''";
 $que[] = "alter table `{$dbFIX}login_log` add ref varchar(255) not null default ''";
 $que[] = "alter table `{$dbFIX}board_list` add down_level tinyint(4) not null default '0'";
@@ -97,9 +97,9 @@ $que[] = "alter table `{$dbFIX}board_list` add is_english tinyint(1) not null de
 $que[] = "alter table `{$dbFIX}member_list` add blocks int(11) not null default '0'";
 
 // after v1.9.2
-$que[] = "create table `{$dbFIX}notification` ( uid int(11) not null auto_increment, to_key int(11) not null default '0', from_key int(11) not null default '0'," . 
+$que[] = "create table `{$dbFIX}notification` ( no int(11) not null auto_increment, to_key int(11) not null default '0', from_key int(11) not null default '0'," . 
 	"act tinyint(2) not null default '0', bbs_id varchar(50) not null default '', bbs_no int(11) not null default '0', is_checked tinyint(1) not null default '0', " . 
-	"primary key(uid), key(to_key)) TYPE=MyISAM CHARSET=utf8;";
+	"primary key(no), key(to_key))";
 
 // run query
 for($i=0; $i<count($que); $i++) @mysql_query($que[$i]);
@@ -164,6 +164,7 @@ if(!is_dir('../passwd'))
 
 // 문서설정
 $title = 'GR Board Upgrade: v1.7.7 "바다표범 II" ▶▶▶ 알바트로스 (v1.9.2 BETA) 으로 업데이트 되었습니다.';
+$preRoute = '..';
 include '../html_head.php';
 ?>
 <body>

@@ -266,6 +266,17 @@ $que[] = "create table `{$dbFIX}pds_list` (
 	idx tinyint(2) not null default '0', 
 	name varchar(255) not null default '',
 	primary key(no), key(type), key(uid))";
+	
+// 활동 알림판 저장소
+$que[] = "create table `{$dbFIX}notification` ( 
+  no int(11) not null auto_increment, 
+  to_key int(11) not null default '0', 
+  from_key int(11) not null default '0',
+  act tinyint(2) not null default '0', 
+  bbs_id varchar(50) not null default '', 
+  bbs_no int(11) not null default '0', 
+  is_checked tinyint(1) not null default '0', 
+  primary key(no), key(to_key))";
 
 // 초기 설정값 지정
 $que[] = "insert into `{$dbFIX}layout_config` set no = '', opt = 'outlogin_skin', var = 'new_default'";
