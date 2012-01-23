@@ -1,0 +1,49 @@
+#grLoginForm {
+	padding: 5px;
+	width: 170px;
+	background-color: #f9f9f9;
+	border-radius: 10px 0 0 0;
+	font-size: 12px;
+}
+.loginLeft {
+	width: 35px;
+	height: 20px;
+	float: left; 
+	font-size: 11px;
+	color: #6cab60;
+	text-align: right;
+}
+.loginRight { 
+	width: 105px; 
+	float: left; 
+	height: 20px; 
+	text-align: left; 
+	padding-left: 10px; 
+}
+.loginRight img {
+	vertical-align: middle;
+}
+.loginClear { clear: both; }
+.loginInput { 
+	border: #ddd solid 1px;
+	color: #666;
+	width: 80px;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+.loginInput:focus { border:1px solid #948e72; color:#62574c; background-color: #fff; }
+.loginSubmit {
+	border-width: 0px; 
+	padding-top: 3px;
+}
+.loginAlign { 
+	text-align: center; 
+	padding: 10px 0px 5px 0px; 
+}
+.loginAlign input,
+.loginAlign img {
+	vertical-align: middle;
+}
+.loginSpace {
+	padding: 0 0 5px 0;
+}

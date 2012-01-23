@@ -1,15 +1,14 @@
 <?php
 // 보안처리 @sirini
 // FI와 LFI 취약점 @김동현(Ste@lth) in BlackFalcon
-if ($_GET['grboard'] || $_POST['grboard']||$_COOKIE['grboard']||$_OPTION['grboard']||$_HEAD['grboard']||$_TRACE['grboard']) {
-    unset($_GET['grboard']);
-    unset($_POST['grboard']);
-    unset($_COOKIE['grboard']);
-    unset($_OPTION['grboard']);
-    unset($_HEAD['grboard']);
-    unset($_TRACE['grboard']);
-	unset($grboard);
-}
+unset($_GET['grboard']);
+unset($_POST['grboard']);
+unset($_COOKIE['grboard']);
+unset($_OPTION['grboard']);
+unset($_HEAD['grboard']);
+unset($_TRACE['grboard']);
+unset($grboard);
+
 if(!$grboard) exit();
 
 // 기본 클래스를 불러온다. @sirini
