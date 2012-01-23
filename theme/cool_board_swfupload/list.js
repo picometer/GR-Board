@@ -62,13 +62,6 @@ vmBtn.onclick = function() {
 	return false;
 };
 
-// 스크랩 버튼 클릭 시 처리
-var vsBtn = _('viewScrapBtn');
-vsBtn.onclick = function() {
-	window.open(this.href, 'scrapView', 'width=650, height=600, menubar=no, scrollbars=yes'); 
-	return false;
-};
-
 // RSS 버튼 클릭 시 처리
 var rssBtn = _('viewRssBtn');
 rssBtn.onclick = function() {

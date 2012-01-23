@@ -35,7 +35,6 @@
 	<?php endif; ?>
 </div>
 
-
 <div class="searchBox">
 	<div>
 		<select name="searchOption" id="searchOption">
@@ -58,7 +57,7 @@
 </div>
 </form>
 
-<div id="viewMemberInfo" style="display: none" onmouseout="showOff();"></div>
+<div id="viewMemberInfo" style="display: none" onclick="showOff();" title="여기를 클릭하시면 상자가 다시 사라집니다."></div>
 
 <script>
 var GRBOARD = '<?php echo $grboard; ?>/';

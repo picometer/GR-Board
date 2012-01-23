@@ -197,10 +197,11 @@
 #subjectBar { padding: 7px; font-size: 11px; font-family: "Trebuchet MS", sans-serif; background: url(image/top_back.gif) repeat-x; color: #777; }
 #goodORbad { text-align: right; }
 #goodORbad a { font-size: 10px; }
-#viewMemberInfo { position: absolute; width: 100px; border: #999 2px solid; background-color: #fff; }
+#viewMemberInfo { position: absolute; width: 100px; border: #aaa 2px solid; border-radius: 10px; box-shadow: 3px 3px 3px #ddd; background-color: #fff; }
 #viewMemberInfo div a { text-decoration: none; font-size: 11px; font-family: Dotum, 돋움, sans-serif; color: #666; }
 #viewMemberInfo div { padding: 5px; border-bottom: #ddd 1px dotted; }
 #viewMemberInfo div img { vertical-align: middle; }
+#memberInfoThumbList:hover { background-color: #eee; }
 
 /* hover, focus event for non-IE6 */
 #GRBOARD .input:focus, 
