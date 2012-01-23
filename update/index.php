@@ -20,6 +20,7 @@ if(!$dbFIX) {
 	$saveDbInfo .= '@mysql_connect($hostName, $userId, $password);'."\n";
 	$saveDbInfo .= '@mysql_select_db($dbName);'."\n";
 	$saveDbInfo .= '#@mysql_query(\'set names utf8\'); // 한글이 깨져보일 경우 이 줄 맨 앞에 # 을 제거'."\n";
+	$saveDbInfo .= '#@mysql_query(\'set old_passwords=1\'); // 서버 이전 등으로 갑자기 로그인이 안될 때 맨 앞에 # 을 제거'."\n";
 	$saveDbInfo .= '?>'."\n";
 	@chmod('../db_info.php', 0707);
 	@unlink('../db_info.php');
@@ -95,6 +96,11 @@ $que[] = "alter table `{$dbFIX}board_list` add is_history tinyint(1) not null de
 $que[] = "alter table `{$dbFIX}board_list` add is_english tinyint(1) not null default '1'";
 $que[] = "alter table `{$dbFIX}member_list` add blocks int(11) not null default '0'";
 
+// after v1.9.2
+$que[] = "create table `{$dbFIX}notification` ( uid int(11) not null auto_increment, to_key int(11) not null default '0', from_key int(11) not null default '0'," . 
+	"act tinyint(2) not null default '0', bbs_id varchar(50) not null default '', bbs_no int(11) not null default '0', is_checked tinyint(1) not null default '0', " . 
+	"primary key(uid), key(to_key)) TYPE=MyISAM CHARSET=utf8;";
+
 // run query
 for($i=0; $i<count($que); $i++) @mysql_query($que[$i]);
 $getBoardList = @mysql_query('select id from '.$dbFIX.'board_list');
@@ -157,23 +163,24 @@ if(!is_dir('../passwd'))
 }
 
 // 문서설정
-$title = 'GR Board Upgrade: v1.7.7 "바다표범 II" ▶▶▶ v1.8.6.4 Community Edition 으로 업데이트 되었습니다.';
+$title = 'GR Board Upgrade: v1.7.7 "바다표범 II" ▶▶▶ 알바트로스 (v1.9.2 BETA) 으로 업데이트 되었습니다.';
 include '../html_head.php';
 ?>
 <body>
 
-<h2>GR Board v1.8.6.6 R2 Community Edition 의 업데이트가 완료 되었습니다!</h2>
+<h2>GR Board 알바트로스 (v1.9.2 BETA) 의 업데이트가 완료 되었습니다!</h2>
 
 <strong>DB Table 업데이트 내역</strong>
 <ul>
-  <li><em>일정 로그인 횟수이상 실패시, 로그인을 차단할 수 있습니다.</em></li>
-  <li><em>영문으로만 작성된 글을 차단할 수 있습니다.</em></li>
-  <li><em>글 수정시 나타나는, "moderator by" 표시여부를 설정할 수 있습니다.</em></li>
-	<li><em>쪽지함의 sender_key 에도 인덱스를 걸었습니다.</em></li>
-	<li><em>첨부파일 다운로드 권한 설정 및 파일 다운로드시 포인트 차감 기능 추가합니다.</em></li>
-	<li><em>로그인 기록 작성시 접속 아이피와 리퍼러 정보를 추가합니다.</em></li>
-	<li><em>개인 정보수정 페이지 DB 초기화가 빠진 부분 추가했습니다.</em></li>
-	<li><em>게시판 이름을 추가할 수 있도록 했습니다. (gr_board_list 테이블 name 컬럼 생성)</em></li>
+	<li><em>알림 내역들을 기록하는 테이블을 추가하였습니다. (gr_notification)</em></li>
+  <li>일정 로그인 횟수이상 실패시, 로그인을 차단할 수 있습니다.</li>
+  <li>영문으로만 작성된 글을 차단할 수 있습니다.</li>
+  <li>글 수정시 나타나는, "moderator by" 표시여부를 설정할 수 있습니다.</li>
+	<li>쪽지함의 sender_key 에도 인덱스를 걸었습니다.</li>
+	<li>첨부파일 다운로드 권한 설정 및 파일 다운로드시 포인트 차감 기능 추가합니다.</li>
+	<li>로그인 기록 작성시 접속 아이피와 리퍼러 정보를 추가합니다.</li>
+	<li>개인 정보수정 페이지 DB 초기화가 빠진 부분 추가했습니다.</li>
+	<li>게시판 이름을 추가할 수 있도록 했습니다. (gr_board_list 테이블 name 컬럼 생성)</li>
 	<li>개인정보 확인 페이지를 스킨화 했습니다.</li>
 	<li>보다 개선된 계층형 댓글 정렬을 위한 키 컬럼을 추가했습니다. (gr_comment_*)</li>
 	<li>로그인 기록을 저장하는 테이블을 생성했습니다. (gr_login_log 테이블)</li>

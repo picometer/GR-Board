@@ -7,7 +7,6 @@ unset($_COOKIE['grboard']);
 unset($_OPTION['grboard']);
 unset($_HEAD['grboard']);
 unset($_TRACE['grboard']);
-unset($grboard);
 
 if(!$grboard) exit();
 

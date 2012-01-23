@@ -3,15 +3,13 @@
 $_GET['grboard'] = $_POST['grboard'] = $_REQUEST['grboard'] = false;
 // 보안처리 @sirini
 // FI와 LFI 취약점 @김동현(Ste@lth) in BlackFalcon
-if ($_GET['grboard'] || $_POST['grboard']||$_COOKIE['grboard']||$_OPTION['grboard']||$_HEAD['grboard']||$_TRACE['grboard']) {
-    unset($_GET['grboard']);
-    unset($_POST['grboard']);
-    unset($_COOKIE['grboard']);
-    unset($_OPTION['grboard']);
-    unset($_HEAD['grboard']);
-    unset($_TRACE['grboard']);
-	unset($grboard);
-}
+unset($_GET['grboard']);
+unset($_POST['grboard']);
+unset($_COOKIE['grboard']);
+unset($_OPTION['grboard']);
+unset($_HEAD['grboard']);
+unset($_TRACE['grboard']);
+
 if(!$grboard) exit();
 
 // 아웃로긴 함수 정의 @sirini

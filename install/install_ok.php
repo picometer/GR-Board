@@ -39,6 +39,7 @@ $saveDbInfo .= '$timeDiff = 0;'."\n";
 $saveDbInfo .= '@mysql_connect($hostName, $userId, $password);'."\n";
 $saveDbInfo .= '@mysql_select_db($dbName);'."\n";
 $saveDbInfo .= '#@mysql_query(\'set names utf8\'); // 한글이 깨져보일 경우 이 줄 맨 앞에 # 을 제거'."\n";
+$saveDbInfo .= '#@mysql_query(\'set old_passwords=1\'); // 서버 이전 등으로 갑자기 로그인이 안될 때 맨 앞에 # 을 제거'."\n";
 $saveDbInfo .= '?>'."\n";
 $fileCreate = fopen($preRoute . 'db_info.php', 'w');
 fwrite($fileCreate, $saveDbInfo);
@@ -61,21 +62,11 @@ fclose($fp);
 @chmod($preRoute . 'config_member.php', 0707);
 
 // session, data, passwd 저장폴더를 생성한다. @sirini
-if(!is_dir($preRoute . 'session')) {
-	@mkdir($preRoute . 'session', 0707);
-}
-if(!is_dir($preRoute . 'data')) {
-	@mkdir($preRoute . 'data', 0707);
-}
-if(!is_dir($preRoute . 'passwd')) {
-	@mkdir($preRoute . 'passwd', 0707);
-}
-if(!is_dir($preRoute . 'icon')) {
-	@mkdir($preRoute . 'icon', 0707);
-}
-if(!is_dir($preRoute . 'member')) {
-	@mkdir($preRoute . 'member', 0707);
-}
+if(!is_dir($preRoute . 'session')) @mkdir($preRoute . 'session', 0707);
+if(!is_dir($preRoute . 'data')) @mkdir($preRoute . 'data', 0707);
+if(!is_dir($preRoute . 'passwd')) @mkdir($preRoute . 'passwd', 0707);
+if(!is_dir($preRoute . 'icon')) @mkdir($preRoute . 'icon', 0707);
+if(!is_dir($preRoute . 'member')) @mkdir($preRoute . 'member', 0707);
 
 $grboard = str_replace('/install/install_ok.php', '', $_SERVER['PHP_SELF']);
 $str = <<<REWRITE
