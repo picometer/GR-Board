@@ -2,7 +2,7 @@
 	<?php
 	// 게시물 루프
 	$notiCount = 0;
-	while($noti = mysql_fetch_array($getData))
+	while($noti = $GR->fetch($getData))
 	{
 		if($noti['from_key']) $who = $GR->getArray("select nickname from {$dbFIX}member_list where no = " . $noti['from_key']);
 		else $who['nickname'] = '비회원';
