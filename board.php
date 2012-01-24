@@ -4,14 +4,6 @@ include 'class/common.php';
 $GR = new COMMON;
 $GR->dbConn();
 
-// 접근차단 IP 조회
-$getKillIPList = trim(@file_get_contents('out_ip.txt'));
-if($getKillIPList) {
-	$tArrIP = explode(',', $getKillIPList);
-	$numKillIP = count($tArrIP);
-	if($getKillIPList) for($tki=0; $tki<$numKillIP; $tki++) if($tArrIP[$tki] == $_SERVER['REMOTE_ADDR']) $GR->error('차단된 IP 입니다.');
-}
-
 // 보안강화
 if(isset($_GET['id'])) $id = $_GET['id']; else $id = $_POST['id'];
 

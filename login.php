@@ -53,7 +53,7 @@ if(!empty($boardID) && ($setup['head_file'] || $setup['head_form'])) {
 include 'admin/theme/outlogin/'.$getOutlogin['var'].'/login.php';
 ?>
 
-<script src="<?php echo $grboard; ?>/js/login.js" type="text/javascript"></script>
+<script src="<?php echo $grboard; ?>/js/login.js"></script>
 
 <?php
 // 하단 설정 @sirini

@@ -350,26 +350,6 @@ include 'admin/admin_left_menu.php';
 
 		<div class="vSpace"></div>
 
-		<!-- 접근금지 IP -->
-		<div class="mvBack" id="admIpTable">
-			<div class="mv">접근금지 IP</div>
-			<form id="killIP" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-			<div><input type="hidden" name="modifyKillIP" value="1" /></div>
-			<div style="text-align:center">
-				<textarea name="killIPForm" class="filterForm" rows="5" cols="50"><?php @readfile("out_ip.txt"); ?></textarea>
-			</div>
-			<?php if(!is_writable('out_ip.txt')) { ?><span class="badStatus">※ GR Board 디렉토리 안에 있는 out_ip.txt 파일의 퍼미션(권한)을 707로 해주세요!</span><br /><?php } ?>
-			<div class="caution">- 접근 거부목록이 많아질경우 매번 검사하는데 시간이 많이 걸려지며 GR Board 가 느려집니다.</div>
-			<div class="caution">- 아이피는 공백없이 (<strong>,</strong>) 콤마로 구분합니다.</div>
-			
-			<div class="submitBox">
-				<input type="submit" value="IP 필터 업데이트" title="접근거부 IP를 수정합니다" />
-			</div>
-			</form>
-		</div><!--# 접근금지 IP -->
-
-		<div class="vSpace"></div>
-
 		<!-- 최근 게시물/댓글 기록 -->
 		<div class="mvBack" id="admLatestArticle">
 			<div class="mv">최근 게시물/댓글 기록</div>
