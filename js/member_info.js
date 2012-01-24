@@ -17,7 +17,7 @@ function getMember(no, myNo, e) {
 	var bd = document.body;
 	xPos = evt.pageX || (evt.clientX + (bd.scrollLeft || doc.scrollLeft) - (doc.clientLeft || 0));
 	yPos = evt.pageY || (evt.clientY + (bd.scrollTop || doc.scrollTop) - (doc.clientTop || 0));
-	t = document.getElementById('viewMemberInfo');
+	t = _('viewMemberInfo'); // _() 함수는 theme 안에 list.js 에 있는 걸 빌린 거임
 	t.style.display = '';
 	t.style.left = xPos+'px';
 	t.style.top = yPos+'px';
@@ -65,5 +65,5 @@ function getMember(no, myNo, e) {
 
 // 미니메뉴 마우스 아웃 이벤트
 function showOff() {
-	document.getElementById('viewMemberInfo').style.display='none';
+	_('viewMemberInfo').style.display='none';
 }

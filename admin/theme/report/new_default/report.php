@@ -20,8 +20,7 @@ $getPost = @mysql_fetch_array(mysql_query('select subject, content from '.$dbFIX
 	<div class="contents">
   <noscript>
 	  <div id="noscript">
-	    <p>Javascript를 지원하지 않는 브라우저 입니다.</p>
-	    <p>회원정보 수정과 탈퇴가 불가능할 수 있습니다.</p>
+	    <p>Javascript를 지원하지 않는 브라우저 입니다. 지원되는 브라우저로 변경해서 다시 시도해 주세요.</p>
 	  </div>
 	</noscript>
 	<form id="addReport" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -61,7 +60,7 @@ $getPost = @mysql_fetch_array(mysql_query('select subject, content from '.$dbFIX
 	</div>
    <!-- Button -->
     <ul class="button">
-      <li class="ok"><input type="image" src="./admin/theme/report/new_default/images/submit.gif" title="약관에 동의하였으며 회원가입을 완료합니다." /></li> 
+      <li class="ok"><input type="image" src="./admin/theme/report/new_default/images/submit.gif" title="이 게시물에 대한 신고를 완료합니다." /></li> 
     </ul>
 	  </form>
 </div>

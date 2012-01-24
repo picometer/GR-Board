@@ -48,14 +48,5 @@ include 'html_head.php';
 include 'admin/theme/report/'.$getReport['var'].'/report.php';
 ?>
 
-<script>
-function deleteScrap(no) {
-	if(confirm('선택한 스크랩을 정말로 삭제하시겠습니까?\n\n'+
-		'삭제된 스크랩은 다시 복구할 수 없습니다.')) {
-		location.href='view_scrap.php?deleteTarget='+no;
-	}
-}
-</script>
-
 </body>
 </html>
