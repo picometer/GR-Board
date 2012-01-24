@@ -1,9 +1,0 @@
-/* 최근게시물 CSS */
-.latestTop { height: 29px; padding-top: 7px; background: url(mv_top.gif) repeat-x; text-align: center; }
-.latestTop a { color: #666; text-decoration: none; }
-.latestSubject { padding: 7px 5px 5px 5px; text-align: left; border-bottom: #eee 1px solid; }
-.latestSubject a { color: #666; }
-.latestSubject a:hover { color: #5195e2; font-weight: bold; }
-.latestCommentNum { padding-top: 2px; font: 9px verdana, sans-serif; color: #999; }
-.latestName { font-size: 11px; color: #aaa; }
-.latestClear { clear: both; }
