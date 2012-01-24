@@ -1,6 +1,6 @@
 // 검색어 입력이 시작될 때 호출
 function startSearch(id) {
-	var st = _('searchText').value;
+	var st = _('searchText').value; // _() 는 theme 안에 list.js 에 있음
 	var so = _('searchOption').value;
 	if(st) {
 		var req = xmlHttp(); // member_info.js 가 먼저 호출되므로 거기서 빌려 옴
@@ -38,5 +38,5 @@ function htmlspecialchars(str) {
 
 // 추천 검색 박스 클리어
 function clearBox() {
-	_('searchIndex').style.display = 'none'; // _() 는 theme 안에 list.js 에 있음
+	_('searchIndex').style.display = 'none';
 }
