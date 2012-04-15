@@ -5,6 +5,7 @@ if($mode) $writeTitle = '기존의 글을 수정합니다';
 else $writeTitle = '새로운 게시물을 작성합니다';
 
 include $theme . '/head.php';
+include $theme . '/lib/write_config.php';
 ?>
 
 <!-- 글작성 폼 시작 (이 부분은 수정하지 마세요) -->
@@ -17,6 +18,7 @@ include $theme . '/head.php';
 	<input type="hidden" name="autosaveTime" value="<?php echo time(); ?>" />
 	<input type="hidden" name="isReported" value="<?php echo $isReported; ?>" />
 	<input type="hidden" name="clickCategory" value="<?php echo $clickCategory; ?>" />
+	<?php if($setting['secret_only']): ?><input type="hidden" name="is_secret" value="1" /><?php endif; ?>
 </div>
 
 <div class="writeTitle"><?php echo $writeTitle; ?></div>
@@ -25,11 +27,15 @@ include $theme . '/head.php';
 
 <ul class="noneStyle">	
 
+	<?php if(!$setting['secret_only']): ?>
 	<li><input type="checkbox" name="is_secret" value="1" <?php echo (($modify['is_secret'])?'checked="checked"':''); ?> /> 
 	<span title="체크하면 비밀글로 등록되어 작성자와 이 게시판 마스터, 관리자만이 볼 수 있습니다">비밀글로 설정</span> (글 작성자와 관리자만 볼 수 있습니다.)</li>
+	<?php endif; ?>
 
+	<?php if($setting['enable_alert']): ?>
 	<li><input type="checkbox" name="is_alert" value="1" <?php echo (($modify['bad'] && $modify['bad']<-10)?'checked="checked"':''); ?> onclick="useAlert();" /> 
 	<span title="체크하면 글보기 시 경고문구를 먼저 보여주고 사용자가 클릭 시 본문을 보도록 합니다">경고문구 부착</span> (글 보기시 경고문구를 클릭해야 본문이 보입니다.)</li>
+	<?php endif; ?>
 	
 	<?php if($isAdmin || $isMaster): ?>
 		<li><input type="checkbox" name="is_notice" value="1" <?php echo (($modify['is_notice'])?'checked="checked"':''); ?> /> <span>공지글로 설정</span> (이 게시판 맨 윗줄에 매달아 놓습니다.)</li>
@@ -59,12 +65,11 @@ include $theme . '/head.php';
 		</div>
 	<?php endif; ?>
 
+	<?php if($setting['reply_open']): ?>
 	<li><input type="checkbox" name="option_reply_open" value="1" <?php echo (($modify['option_reply_open'] || !$mode)?'checked="checked"':''); ?> /> 
 	<span title="체크하면 이 게시물에 댓글을 허용합니다.">댓글 허용하기</span> (이 글에 댓글입력을 허용합니다.)</li>
+	<?php endif; ?>
 	
-	<li><input type="checkbox" name="option_reply_notify" value="1" <?php echo (($modify['option_reply_notify'])?'checked="checked"':''); ?> /> 
-	<span title="체크하면 이 게시물에 댓글이 달릴 때 쪽지로 알려줍니다.">댓글을 쪽지로 알려주기</span> (댓글이 달리면 쪽지함으로 메시지를 받습니다.)</li>
-
 </ul>
 </div>
 
@@ -102,12 +107,16 @@ include $theme . '/head.php';
 
 	<li><span style="padding-right: 7px"><strong>제 &nbsp; 목:</strong></span> <input type="text" name="subject" size="73" class="input" value="<?php echo $subject?>" /></li>
 
+	<?php if($setting['enable_tag']): ?>
 	<li><span style="padding-right: 5px">꼬 리 표:</span> <input type="text" name="tag" class="input" onkeydown="tagAssist(this.value, '<?php echo $id; ?>');" style="width: 350px" value="<?php echo $modify['tag']; ?>" title="태그(tag/꼬리표)를 통해 글의 핵심단어를 보여줄 수 있습니다." /> ( <strong>,</strong> 콤마로 단어 구분)
 	<div id="searchTags" style="display: none"></div></li>
+	<?php endif; ?>
 
+	<?php if($setting['enable_link']): ?>
 	<li><span style="padding-right: 5px">링크 # 1:</span> <input type="text" name="link1" size="73" class="input" value="<?php echo $modify['link1']; ?>" /></li>
 	
 	<li><span style="padding-right: 5px">링크 # 2:</span> <input type="text" name="link2" size="73" class="input" value="<?php echo $modify['link2']; ?>" /></li>
+	<?php endif; ?>
 
 </ul>
 
@@ -168,13 +177,15 @@ include $theme . '/head.php';
 
 <div style="padding-top: 15px">
 	
-	<input type="button" class="roundBtn" id="miniDicBtn" value="미니사전" title="다음 미니사전 열기" />
+	<?php if($setting['enable_dic']): ?><input type="button" class="roundBtn" id="miniDicBtn" value="미니사전" title="다음 미니사전 열기" /><?php endif; ?>
 	
-	<input type="button" class="roundBtn" value="설문조사" onclick="inputPoll('<?php echo $grboard.'/'.$theme; ?>', '<?php echo $id; ?>');" title="설문조사를 작성합니다. 클릭 후 팝업창이 뜨면 그 곳에 안내된 대로 설문을 작성해서 넣어보세요." /> 
+	<?php if($setting['enable_poll']): ?><input type="button" class="roundBtn" value="설문조사" onclick="inputPoll('<?php echo $grboard.'/'.$theme; ?>', '<?php echo $id; ?>');" title="설문조사를 작성합니다. 클릭 후 팝업창이 뜨면 그 곳에 안내된 대로 설문을 작성해서 넣어보세요." /><?php endif; ?> 
 	
-	<input type="button" class="roundBtn" id="recoveryPostBtn" value="글 복구" title="마지막으로 저장된 글을 가져옵니다." /> 
+	<?php if($setting['enable_save']): ?>
+		<input type="button" class="roundBtn" id="recoveryPostBtn" value="글 복구" title="마지막으로 저장된 글을 가져옵니다." /> 
 	
-	<input type="button" class="roundBtn" value="임시저장" onclick="autosave();" title="임시로 글제목과 내용을 저장하고, 계속해서 글을 작성합니다. (자주 눌러주세요!)" /> 
+		<input type="button" class="roundBtn" value="임시저장" onclick="autosave();" title="임시로 글제목과 내용을 저장하고, 계속해서 글을 작성합니다. (자주 눌러주세요!)" />
+	<?php endif; ?> 
 	
 	<input type="submit" class="roundBtn" value="작성완료" accesskey="s" title="글을 작성 완료 합니다." /> 
 	
@@ -184,9 +195,9 @@ include $theme . '/head.php';
 
 </form>
 
-
+<?php if($setting['enable_save']): ?>
 <div id="writePreviewBox"><img src="<?php echo $grboard; ?>/image/icon/poll_icon.gif" alt="" /> [임시저장] 버튼을 자주 눌러주세요. 불의의 사고로 작성중인 글이 삭제되는 것을 방지합니다.</div>
-
+<?php endif; ?>
 
 <script>
 var USE_EDITOR = false;
