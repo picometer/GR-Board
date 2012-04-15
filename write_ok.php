@@ -176,7 +176,29 @@ if($isAdmin || $isMaster) {
       if(!preg_match('/[\x{1100}-\x{11ff}\x{3130}-\x{318f}\x{ac00}-\x{d7af}]+/u', $content)) $GR->error('스팸성 게시물로 의심되어 차단되었습니다.', 1, 'HISTORY_BACK');
 	  }
   }
-$saveFileDir = 'data/'.$id; # 파일 저장위치
+
+// 파일 저장하는 경로 생성
+$saveFileDir = 'data/'.$id;
+$saveDirY = date('Y');
+$saveDirM = date('m');
+$saveDirD = date('d');
+if(!is_dir($saveFileDir)) {
+	@mkdir($saveFileDir, 0705);
+	@chmod($saveFileDir, 0707);
+}
+if(!is_dir($saveFileDir . '/' . $saveDirY)) {
+	@mkdir($saveFileDir . '/' . $saveDirY, 0705);
+	@chmod($saveFileDir . '/' . $saveDirY, 0707);
+}
+if(!is_dir($saveFileDir . '/' . $saveDirY . '/' . $saveDirM)) {
+	@mkdir($saveFileDir . '/' . $saveDirY . '/' . $saveDirM, 0705);
+	@chmod($saveFileDir . '/' . $saveDirY . '/' . $saveDirM, 0707);
+}
+if(!is_dir($saveFileDir . '/' . $saveDirY . '/' . $saveDirM . '/' . $saveDirD)) {
+	@mkdir($saveFileDir . '/' . $saveDirY . '/' . $saveDirM . '/' . $saveDirD, 0705);
+	@chmod($saveFileDir . '/' . $saveDirY . '/' . $saveDirM . '/' . $saveDirD, 0707);
+}
+$saveFileDir = $saveFileDir . '/' . $saveDirY . '/' . $saveDirM . '/' . $saveDirD;
 
 // 현재 게시판의 접근권한을 확인한다. @sirini
 $isWriteOk = $GR->getArray("select write_level from {$dbFIX}board_list where id = '$id'");
@@ -201,10 +223,6 @@ foreach($_FILES as $fKey => $fValue) {
 	if(strpos('fileExtend', $fKey) === true) $isExtendFile = true; 
 	else $isExtendFile = false;
 	if($filesize > 0) {
-		if(!is_dir($saveFileDir)) {
-			@mkdir($saveFileDir, 0705);
-			@chmod($saveFileDir, 0707);
-		}
 		if(!is_uploaded_file($filetmpname)) $GR->error('정상적으로 파일을 업로드 해 주세요.', 0, 'HISTORY_BACK');
 		if(preg_match('/\.(inc|phtm|htm|shtm|ztx|php|dot|asp|cgi|pl|js|sql|sh|py|htaccess|jsp)$/i', $filename)) {
 			$GR->error('HTML, Server side script 관련 파일은 업로드 하실 수 없습니다.', 1, 'HISTORY_BACK');

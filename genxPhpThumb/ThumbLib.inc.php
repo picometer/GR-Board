@@ -26,7 +26,6 @@
  * @package PhpThumb
  * @filesource
  */
-
 // define some useful constants
 define('THUMBLIB_BASE_PATH', dirname(__FILE__));
 define('THUMBLIB_PLUGIN_PATH', THUMBLIB_BASE_PATH . '/thumb_plugins/');

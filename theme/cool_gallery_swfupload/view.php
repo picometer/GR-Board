@@ -1,9 +1,7 @@
 <?php
 if(!defined('__GRBOARD__')) exit();
-include $theme.'/lib/view_lib.php';
-
-$maxImageWidth = 550; # ← 본문 내 이미지 최대크기 (px)
-$content = autoImgResize($maxImageWidth, $content);
+include_once 'genxPhpThumb/ThumbLib.inc.php';
+include_once $theme.'/lib/view_lib.php';
 ?>
 
 <div class="viewTitle">

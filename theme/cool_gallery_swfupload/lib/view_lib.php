@@ -1,8 +1,33 @@
 <?php
-// 글보기시 특정 기능 ON / OFF 설정 //
+// 글보기시 특정 기능 ON / OFF, 숫자 설정 //
 $setting['enable_facebook'] = 1; # 페이스북에 글 보내기 기능 사용=1, 미사용=0
 $setting['enable_twitter'] = 1; # 트위터에 글 소개하기 기능 사용=1, 미사용=0
-// 글보기시 특정 기능 ON / OFF 설정 끝 //
+$setting['thumb_width_size'] = 700; // 글보기에서 썸네일 폭 지정, 0 이면 사용 안함 (px 단위)
+// 글보기시 특정 기능 ON / OFF, 숫자 설정 끝 //
+
+// 썸네일 이미지 만들기
+function makeThumbImage($path)
+{
+	global $theme, $setting;
+	$filename = end(explode('/', $path));
+	$filetype = end(explode('.', $filename));
+	$genFile = 'data/__thumbs__/'.date('Y/m/d').'/view_'.$filename;
+	if(file_exists($genFile)) return $genFile;
+	
+	$thumb = PhpThumbFactory::create($path);
+	$thumb->resize($setting['thumb_width_size'], $setting['thumb_width_size'])->save($genFile);
+	
+	if($filetype == 'jpg' || $filetype == 'jpeg') {
+		$image = imagecreatefromjpeg($genFile);
+		$matrix = array( array(-1, -1, -1), array(-1, 16, -1), array(-1, -1, -1) );
+        $divisor = array_sum(array_map('array_sum', $matrix));
+        $offset = 0; 
+        imageconvolution($image, $matrix, $divisor, $offset);
+		imagejpeg($image, $genFile, 100);	
+	}
+	
+	return $genFile;
+}
 
 // 첨부파일이 그림일 경우 처리하는 함수
 function showImg($filename, $f=1)
@@ -11,8 +36,9 @@ function showImg($filename, $f=1)
 	$getPdsSave = $GR->getArray('select no, file_route'.$f.' from '.$dbFIX.'pds_save where id = \''.$id.'\' and article_num = '.$articleNo.' limit 1');
 	$path = $getPdsSave['file_route'.$f];
 	$ft = end(explode('.', $filename));
-	if($ft == 'jpg' || $ft == 'gif' || $ft == 'png' || $ft == 'bmp') {
-		return '<span><a href="data/'.$id.'/'.$filename.'" onclick="return hs.expand(this)"><img src="'.$path.'" alt="그림보기" /></a></span>';
+	if($ft == 'jpg' || $ft == 'jpeg' || $ft == 'gif' || $ft == 'png' || $ft == 'bmp') {
+		$thumb = makeThumbImage($path);
+		return '<span><a href="'.$path.'" onclick="return hs.expand(this)"><img src="'.$thumb.'" alt="그림보기" /></a></span>';
 	}
 	else return '[파일받기]';
 }
@@ -22,7 +48,7 @@ function showDownImg($filename, $extNo)
 {
 	global $id, $theme, $grboard, $dbFIX, $GR;
 	$getPdsList = $GR->getArray('select no, name from '.$dbFIX.'pds_list where type = 1 and uid = '.$extNo);
-	if($getPdsList['no']) $filename = end(explode('/', $getPdsList['name']));
+	$filename = end(explode('/', $getPdsList['name']));
 	$ft = end(explode('.', $filename));
 	if($ft == 'jpg' || $ft == 'gif' || $ft == 'png' || $ft == 'bmp') {
 		return '<a href="'.$getPdsList['name'].'" onclick="return hs.expand(this)">'.$filename.'</a> &nbsp;&nbsp;';

@@ -1,7 +1,7 @@
 <?php
 if(!defined('__GRBOARD__')) exit();
 if($articleNo) echo '<div style="height: 30px"></div>'; 
-include $theme.'/lib/list_lib.php';
+include_once $theme.'/lib/list_lib.php';
 ?>
 
 <form id="list" method="post" action="<?php echo $grboard; ?>/list_adjust.php">
