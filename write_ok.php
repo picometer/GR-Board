@@ -392,16 +392,18 @@ else {
 	if($optionReplyOpen || $optionReplyNotify) {
 		$GR->query("insert into {$dbFIX}article_option set no = '', article_num = '$insertNo', id = '$id', reply_open = '$optionReplyOpen', reply_notify = '$optionReplyNotify'");
 	}
-	$sqlTotalQue = "insert into {$dbFIX}total_article
+	if($insertNo) {
+		$sqlTotalQue = "insert into {$dbFIX}total_article
 		set no = '',
 			subject = '$subject',
 			id = '$id',
 			article_num = '$insertNo',
 			signdate = '$thisTime',
 			is_secret = '$isSecret'";
-	$GR->query($sqlTotalQue);
+		$GR->query($sqlTotalQue);	
+	}
 
-	if($isUploadEnd) {
+	if($isUploadEnd && $insertNo) {
 		$sqlUploadInsert = "insert into {$dbFIX}pds_save
 			set no = '',
 				id = '$id',

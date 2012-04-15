@@ -164,5 +164,8 @@ $(function(){
 		function(){ $('#helpBox').fadeIn(); },
 		function(){ $('#helpBox').fadeOut(); }
 	);
+	
+	// 탭 UI 적용
+	$("#grboardAdminTab").tabs();
 
 });

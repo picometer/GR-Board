@@ -62,7 +62,7 @@ $content = autoImgResize($maxImageWidth, $content);
 
 	<div class="viewTag">
 		
-		<?php if(!$view['is_secret'] && $tmpFetchBoard['view_level'] < 2): ?>
+		<?php if($setting['enable_facebook']): ?>
 		<!-- 페이스북 Like 연동 -->
 		 <div id="fb-root"></div>
 	     <script>
@@ -76,11 +76,15 @@ $content = autoImgResize($maxImageWidth, $content);
 	     </script>
 	     <div class="fb-like"></div>
 	     <!-- 페이스북 Like 연동 끝 -->
+	     <?php endif; ?>
 	  
+	  	<?php if($setting['enable_twitter']): ?>
+	  	<!-- 트위터에 글 보내기 연동 -->
 	  	<p><a href="https://twitter.com/intent/tweet?text=<?php echo urlencode($view['subject'] . ' http://' . $_SERVER['SERVER_NAME'] . str_replace('../', '/', $grboard) . '/board.php?id=' . $id . '&articleNo=' . $articleNo); ?>" onclick="window.open(this.href, '_blank', 'width=550,height=420,menubar=no'); return false;">
 	  		<img src="<?php echo $theme; ?>/image/tweetn-ko.png" alt="Tweet" /> 에 소개해 보세요 :)
 	  	</a></p>
-	  <?php endif; ?>
+	  	<!-- 트위터에 글 보내기 연동 끝 -->
+	  	<?php endif; ?>
 	     
 		<p><img src="<?php echo $grboard.'/'.$theme; ?>/image/icon_tag.gif" alt="태그" /> <?php echo $tag; ?></p>
 		<p><img src="<?php echo $grboard.'/'.$theme; ?>/image/disk.gif" alt="첨부파일" />

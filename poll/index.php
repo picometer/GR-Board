@@ -71,12 +71,12 @@ include $preRoute . 'html_head.php';
 			while($options = mysql_fetch_array($getPollOptions)) { 
 				$ratio = floor(($options['vote'] / $getSumVoted[0]) * 100);
 				$originRatio = $ratio;
-				if($ratio < 10) $ratio = 10;
+				if($ratio < 2) $ratio = 1;
 				else $ratio -= 2;
 			?>
 			<li>
 					<div><?php echo stripslashes($options['title']); ?></div>
-					<div style="width: <?php echo $ratio; ?>%" class="bar"><?php echo $options['vote']; ?> (<?php echo $originRatio; ?>%)</div>
+					<div style="width: <?php echo $ratio; ?>%; height: 20px" class="bar" title="<?php echo $options['vote']; ?> (<?php echo $originRatio; ?>%)"></div>
 			</li>
 			<?php } ?>
 			</ol>

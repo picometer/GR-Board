@@ -63,9 +63,9 @@ class COMMON {
 
 	// 프로그램 정보 @sirini
 	function grInfo($str='all') {
-		if( $str == 'all' ) $info = '알바트로스 (v1.9.2 BETA)';
+		if( $str == 'all' ) $info = '알바트로스 (v1.9.2 BETA2)';
 		elseif( $str == 'version' ) $info = '1.9.2';
-		elseif( $str == 'status' ) $info = 'BETA';
+		elseif( $str == 'status' ) $info = 'BETA2';
 		return $info;
 	}
 

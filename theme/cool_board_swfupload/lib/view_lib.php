@@ -1,4 +1,9 @@
 <?php
+// 글보기시 특정 기능 ON / OFF 설정 //
+$setting['enable_facebook'] = 1; # 페이스북에 글 보내기 기능 사용=1, 미사용=0
+$setting['enable_twitter'] = 1; # 트위터에 글 소개하기 기능 사용=1, 미사용=0
+// 글보기시 특정 기능 ON / OFF 설정 끝 //
+
 // 첨부파일이 그림일 경우 처리하는 함수
 function showImg($filename)
 {

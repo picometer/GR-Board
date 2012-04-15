@@ -234,5 +234,9 @@ while($readSession = @readdir($sessionDirOpen)) {
 
 // 문서설정 @sirini
 $title = 'GR Board Admin Page';
+$htmlHeadAdd = '<script src="js/jquery.js"></script>'."\n".
+'<link rel="stylesheet" href="js/jqueryui/css/smoothness/jquery-ui.custom.tab.css" type="text/css" />'."\n".
+'<script src="js/jqueryui/js/jquery-ui.custom.tab.min.js"></script>'."\n".
+'<script src="admin/admin.js"></script>';
 include 'html_head.php';
 ?>

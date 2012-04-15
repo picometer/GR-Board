@@ -159,8 +159,5 @@ include 'admin/admin_left_menu.php';
 		</div>
 </div>
 
-<script src="js/jquery.js"></script>
-<script src="admin/admin_board.js"></script>
-
 </body>
 </html>

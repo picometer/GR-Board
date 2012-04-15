@@ -352,5 +352,7 @@ $footContent = '</div></div></section></body></html>';
 
 // 문서설정
 $title = 'GR Board Admin Page ( Board )';
+$htmlHeadAdd = '<script src="js/jquery.js"></script>'."\n".
+'<script src="admin/admin_board.js"></script>';
 include 'html_head.php';
 ?>

@@ -215,9 +215,10 @@ elseif($replyTarget && !$modifyTarget)
 	$GR->query("update {$dbFIX}bbs_{$id} set comment_count = comment_count + 1 where no = '$articleNo'");
 	if($isMember) $GR->query("update {$dbFIX}member_list set point = point + 1 where no = '$sessionNo'");
 
+	$totalSubject = $GR->cutString($content, 300);
 	$sqlTotalCommentQue = "insert into {$dbFIX}total_comment
 		set no = '',
-			subject = '$subject',
+			subject = '$totalSubject',
 			id = '$id',
 			article_num = '$articleNo',
 			comment_num = '$insertNo',
@@ -225,24 +226,7 @@ elseif($replyTarget && !$modifyTarget)
 			is_secret = '$isSecret'";
 	$GR->query($sqlTotalCommentQue);
 
-	// 코멘트에 답변 코멘트시 원 코멘트 작성자에게 쪽지로 답변글을 알려주기 @sirini
-	$originWriter = $GR->getArray("select member_key from {$dbFIX}comment_{$id} where no = '$replyTarget'");
-	if($originWriter['member_key'] && $sessionNo && ($originWriter['member_key'] != $sessionNo)) {
-		$subject = '[답변글알림] ' . $subject;
-		$content = $GR->escape('<a href="./board.php?id='.$id.'&amp;articleNo='.$articleNo.'#read'.$insertNo.
-			'" onclick="window.open(this.href, \'_blank\'); return false">[※ 댓글 확인하기 (클릭)]</a><br /><br />').$content; //GPC아님 MRES지우면 안 됨
-		$sendMemoQue = "insert into {$dbFIX}memo_save
-		set no = '',
-		member_key = '$originWriter[0]',
-		sender_key = '$sessionNo',
-		subject = '$subject',
-		content = '$content',
-		signdate = '$thisTime',
-		is_view = '0'";
-		$GR->query($sendMemoQue);
-	}
-
-	//  활동 알림판에도 기록해두기
+	//  활동 알림판에 기록해두기
 	if($originWriter['member_key'] && $originWriter['member_key'] != $sessionNo) {
 		$GR->query("insert into {$dbFIX}notification set no = '', to_key = '".$originWriter['member_key']."', from_key = '".$sessionNo."', " .
 			"act = '2', bbs_id = '$id', bbs_no = '$articleNo', is_checked = '0'");
@@ -276,9 +260,10 @@ elseif($replyTarget && !$modifyTarget)
 	$GR->query("update {$dbFIX}bbs_{$id} set comment_count = comment_count + 1 where no = '$articleNo'");
 	if($isMember) $GR->query("update {$dbFIX}member_list set point = point + 1 where no = '$sessionNo'");
 
+	$totalSubject = $GR->cutString($content, 300);
 	$sqlTotalCommentQue = "insert into {$dbFIX}total_comment
 		set no = '',
-			subject = '$subject',
+			subject = '$totalSubject',
 			id = '$id',
 			article_num = '$articleNo',
 			comment_num = '$familyNo',
@@ -286,26 +271,7 @@ elseif($replyTarget && !$modifyTarget)
 			is_secret = '$isSecret'";
 	$GR->query($sqlTotalCommentQue);
 
-	// 신규 코멘트 추가 시 원문 글 작성자에게 쪽지로 댓글을 알려주기 (글 작성자가 허용할 때만) @sirini
-	if(!$getArticleOption['no'] || $getArticleOption['reply_notify']) {
-		$originWriter = $GR->getArray("select member_key from {$dbFIX}bbs_{$id} where no = '$articleNo'");
-		if($originWriter['member_key'] && $sessionNo && ($originWriter['member_key'] != $sessionNo)) {
-			$subject = '[댓글알림] ' . $subject;
-			$content = $GR->escape('<a href="./board.php?id='.$id.'&amp;articleNo='.$articleNo.'#read'.$familyNo.
-				'" onclick="window.open(this.href, \'_blank\'); return false">[※ 댓글 확인하기 (클릭)]</a><br /><br />').$content; //GPC아님 MRES지우면 안 됨
-			$sendMemoQue = "insert into {$dbFIX}memo_save
-			set no = '',
-			member_key = '$originWriter[0]',
-			sender_key = '$sessionNo',
-			subject = '$subject',
-			content = '$content',
-			signdate = '$thisTime',
-			is_view = '0'";
-			$GR->query($sendMemoQue);
-		}
-	}
-
-	//  활동 알림판에도 기록해두기
+	//  활동 알림판에 기록해두기
 	if($originWriter['member_key'] && $originWriter['member_key'] != $sessionNo) {
 		$GR->query("insert into {$dbFIX}notification set no = '', to_key = '".$originWriter['member_key']."', from_key = '".$sessionNo."', " .
 			"act = '1', bbs_id = '$id', bbs_no = '$articleNo', is_checked = '0'");
