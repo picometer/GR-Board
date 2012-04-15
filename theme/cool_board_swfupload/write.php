@@ -114,7 +114,6 @@ include $theme . '/lib/write_config.php';
 
 	<?php if($setting['enable_link']): ?>
 	<li><span style="padding-right: 5px">링크 # 1:</span> <input type="text" name="link1" size="73" class="input" value="<?php echo $modify['link1']; ?>" /></li>
-	
 	<li><span style="padding-right: 5px">링크 # 2:</span> <input type="text" name="link2" size="73" class="input" value="<?php echo $modify['link2']; ?>" /></li>
 	<?php endif; ?>
 
@@ -183,7 +182,6 @@ include $theme . '/lib/write_config.php';
 	
 	<?php if($setting['enable_save']): ?>
 		<input type="button" class="roundBtn" id="recoveryPostBtn" value="글 복구" title="마지막으로 저장된 글을 가져옵니다." /> 
-	
 		<input type="button" class="roundBtn" value="임시저장" onclick="autosave();" title="임시로 글제목과 내용을 저장하고, 계속해서 글을 작성합니다. (자주 눌러주세요!)" />
 	<?php endif; ?> 
 	
@@ -258,8 +256,6 @@ tinyMCE.init({
 		staffid : "991234"
 	}
 });
-
-
 
 var USE_EDITOR = true;
 var GRBOARD = '<?php echo $grboard; ?>';
