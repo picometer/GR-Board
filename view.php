@@ -162,12 +162,6 @@ if($view['bad'] < -60 && $view['bad'] > -1000) {
 		'<div id="hideContent" style="display: none">'.$content.'</div>';
 }
 
-// 트랙백 받을 경우 주소 보여주기 @sirini
-$path = str_replace('/board.php', '', $_SERVER['SCRIPT_NAME']);
-$isTrackback = $tmpFetchBoard['is_trackback'];
-$grkey = substr(md5('grboard'.date('YmdH', $GR->grTime()).$articleNo.$id), -6);
-$trackbackUrl = 'http://'.$_SERVER['HTTP_HOST'].$path.'/trackback.php?id='.$id.'&amp;no='.$articleNo.'&amp;grkey='.$grkey;
-
 // 조회수를 올린다. (세션은 이미 시작되었음) @sirini
 if(strpos($_SESSION['hit'],'gr_hit_'.$articleNo) === false) {
 	$GR->query("update {$dbFIX}bbs_{$id} set hit = hit+1 where no = '$articleNo'");
@@ -278,10 +272,6 @@ if($isAdmin || ($tmpFetchBoard['comment_write_level'] <= $visitorLevel)) {
 				$comment['content'] = '비밀 댓글 입니다.';
 			}
 		}
-		$comment['subject'] = 're) '.$comment['subject'];
-		# 원본 댓글을 다시 보여주지 않고 공백을 바로 보여주도록 변경 @sirini
-		#$comment['content'] = ':'.$comment['content'];
-		#$comment['content'] = nl2br(str_replace("\n", "\n:", $comment['content']));
 	}
 	elseif($modifyTarget && !$replyTarget) {
 		$comment = $GR->getArray('select member_key, name, email, homepage, bad, subject, content, '.
@@ -296,8 +286,6 @@ if($isAdmin || ($tmpFetchBoard['comment_write_level'] <= $visitorLevel)) {
 				$comment['content'] = '비밀 댓글 입니다.';
 			}
 		}
-		$comment['subject'] = stripslashes($comment['subject']);
-		$comment['content'] = nl2br(stripslashes($comment['content']));
 	}
 
 	// 게시물 작성자가 댓글을 허용할 때만 작성폼 출력

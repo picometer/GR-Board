@@ -13,11 +13,11 @@ $content = autoImgResize($maxImageWidth, $content);
 	<div class="btn">
 				
 		<?php if($view['link1']): ?>
-			<input type="button" onclick="window.open('<?php echo htmlspecialchars($view['link1']); ?>', '_blank'); return false" title="링크 #1 이 있습니다." value="링크1" />
+			<input type="button" onclick="window.open('<?php echo $view['link1']; ?>', '_blank'); return false" title="링크 #1 이 있습니다." value="링크1" />
 		<?php endif; ?>
 		
 		<?php if($view['link2']): ?>
-			<input type="button" onclick="window.open('<?php echo htmlspecialchars($view['link2']); ?>', '_blank'); return false" title="링크 #2 이 있습니다." value="링크2" />
+			<input type="button" onclick="window.open('<?php echo $view['link2']; ?>', '_blank'); return false" title="링크 #2 이 있습니다." value="링크2" />
 		<?php endif; ?>
 		
 		<input type="button" onclick="location.href='<?php echo $grboard; ?>/board.php?id=<?php echo $id; ?>&amp;articleNo=<?php echo $articleNo; ?>&amp;good=1';" title="이 글이 좋습니다." value="좋아요 (<?php echo $view['good']; ?>)" /> 
